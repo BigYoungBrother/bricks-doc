@@ -18,5 +18,3 @@ gitbook使用方法：
 
 **直接查看gitbook生成的html文件**
 在本项目根目录下_book文件夹中有对应的html文件
-
-# [目录](./SUMMARY.md)
