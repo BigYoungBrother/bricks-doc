@@ -203,7 +203,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="timer">Timer</h1>
+                                <ul>
+<li><a href="#timer">Timer</a><ul>
+<li><a href="#01-&#x7528;&#x6CD5;">01 &#x7528;&#x6CD5;</a><ul>
+<li><a href="#0x01-&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;">0x01 &#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</a></li>
+<li><a href="#0x02-timer&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x8BE6;&#x89E3;">0x02 Timer&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x8BE6;&#x89E3;</a></li>
+<li><a href="#0x03-schedule&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x8BE6;&#x89E3;">0x03 schedule&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x8BE6;&#x89E3;</a></li>
+</ul>
+</li>
+<li><a href="#02-&#x6E90;&#x7801;&#x8BE6;&#x89E3;">02 &#x6E90;&#x7801;&#x8BE6;&#x89E3;</a><ul>
+<li><a href="#0x01-&#x539F;&#x7406;">0x01 &#x539F;&#x7406;</a></li>
+<li><a href="#0x02-timertask">0x02 TimerTask</a></li>
+<li><a href="#0x03-timer">0x03 Timer</a></li>
+<li><a href="#0x04-taskqueue">0x04 TaskQueue</a></li>
+<li><a href="#0x05-timerthread">0x05 TimerThread</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="timer">Timer</h1>
 <h2 id="01-&#x7528;&#x6CD5;">01 &#x7528;&#x6CD5;</h2>
 <p>Timer&#x662F;Java&#x539F;&#x751F;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;&#x8BE5;&#x7C7B;&#x53EF;&#x5B9E;&#x73B0;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</p>
 <h3 id="0x01-&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;">0x01 &#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</h3>
@@ -253,7 +272,7 @@ schedule&#x4EFB;&#x52A1;&#x63A7;&#x5236;&#x7684;&#x662F;&#x5728;&#x4EFB;&#x52A1;
 <p>scheduleAtFixedRate&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x4E0D;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#x7531;&#x4E8E;&#x6CA1;&#x6709;&#x8C03;&#x5EA6;&#x5BFC;&#x81F4;&#x7684;&#x5EF6;&#x65F6;
 &#x5982;&#x679C;&#x4EFB;&#x52A1;&#x5728;18:30:10&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x7B2C;&#x4E8C;&#x6B21;&#x548C;&#x7B2C;&#x4E09;&#x6B21;&#x65F6;&#x95F4;&#x6267;&#x884C;&#x4E3A; 18:30:20&#x548C;18:30:30
 &#x5373;&#x4F7F;&#x4EFB;&#x52A1;&#x5230;&#x8FBE;18:30:20&#x7684;&#x65F6;&#x95F4;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;&#x7EBF;&#x7A0B;&#x6CA1;&#x6709;&#x8C03;&#x5EA6;&#x5BFC;&#x81F4;&#x4EFB;&#x52A1;&#x5230;18:30:25&#x624D;&#x8C03;&#x5EA6;&#x8D77;&#x6765;&#xFF0C;&#x5219;&#x8BA1;&#x7B97;&#x7B2C;&#x4E09;&#x6B21;&#x8C03;&#x5EA6;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x4ECD;&#x7136;&#x662F;18:30:30</p>
-<h2 id="&#x6E90;&#x7801;&#x8BE6;&#x89E3;">&#x6E90;&#x7801;&#x8BE6;&#x89E3;</h2>
+<h2 id="02-&#x6E90;&#x7801;&#x8BE6;&#x89E3;">02 &#x6E90;&#x7801;&#x8BE6;&#x89E3;</h2>
 <h3 id="0x01-&#x539F;&#x7406;">0x01 &#x539F;&#x7406;</h3>
 <p>Timer&#x673A;&#x5236;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x539F;&#x7406;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x5171;&#x6D89;&#x53CA;4&#x4E2A;&#x7C7B;&#xFF1A;</p>
 <ul>
@@ -1174,7 +1193,7 @@ schedule&#x4EFB;&#x52A1;&#x63A7;&#x5236;&#x7684;&#x662F;&#x5728;&#x4EFB;&#x52A1;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Timer","level":"1.4.1","depth":2,"previous":{"title":"定时任务","level":"1.4","depth":1,"path":"定时任务/README.md","ref":"定时任务/README.md","articles":[{"title":"Timer","level":"1.4.1","depth":2,"path":"Java定时任务/Timer.md","ref":"Java定时任务/Timer.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"}},"file":{"path":"Java定时任务/Timer.md","mtime":"2020-10-04T10:38:23.186Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-04T10:40:08.949Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Timer","level":"1.4.1","depth":2,"previous":{"title":"定时任务","level":"1.4","depth":1,"path":"定时任务/README.md","ref":"定时任务/README.md","articles":[{"title":"Timer","level":"1.4.1","depth":2,"path":"Java定时任务/Timer.md","ref":"Java定时任务/Timer.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"}},"file":{"path":"Java定时任务/Timer.md","mtime":"2020-10-04T10:41:27.813Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-04T10:41:38.609Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
