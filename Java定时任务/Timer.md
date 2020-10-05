@@ -278,6 +278,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  *
  * 更优雅的任务调度类 ScheduledThreadPoolExecutor
+ * ScheduledThreadPoolExecutor可以定义多个线程去执行任务，所以当需要执行的任务比较多时，可以使用ScheduledThreadPoolExecutor
  * <p>Java 5.0 introduced the {@code java.util.concurrent} package and
  * one of the concurrency utilities therein is the {@link
  * java.util.concurrent.ScheduledThreadPoolExecutor
