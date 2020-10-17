@@ -14,7 +14,10 @@ gitbook使用方法：
  **运行gitbook服务**
  1. 安装node
  2. 下载gitbook包`npm install -g gitbook-cli`
- 3. 在本项目根目录下执行`gitbook serve`后在浏览器中输入`127.0.0.1:4000`后即可
+ 3. 在本项目根目录下执行`gitbook serve --port 23333`后在浏览器中输入`127.0.0.1:23333`后即可
 
 **直接查看gitbook生成的html文件**
+
 在本项目根目录下_book文件夹中有对应的html文件
+
+* [目录](SUMMARY.md)

@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="ThreadPoolExecutor.html" />
     
-    <link rel="prev" href="../定时任务/README.md" />
+    
+    <link rel="prev" href="Introduction.html" />
     
 
     </head>
@@ -126,9 +128,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../定时任务/README.md">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <span>
+                <a href="./">
             
                     
                     定时任务
@@ -140,12 +142,64 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="Timer.html">
+        <li class="chapter " data-level="1.4.1" data-path="Introduction.html">
+            
+                <a href="Introduction.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="Timer.html">
             
                 <a href="Timer.html">
             
                     
                     Timer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="ThreadPoolExecutor.html">
+            
+                <a href="ThreadPoolExecutor.html">
+            
+                    
+                    ThreadPoolExecutor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="@Schedule.html">
+            
+                <a href="@Schedule.html">
+            
+                    
+                    @Schedule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="Quartz.html">
+            
+                <a href="Quartz.html">
+            
+                    
+                    Quartz
             
                 </a>
             
@@ -281,7 +335,7 @@ schedule&#x4EFB;&#x52A1;&#x63A7;&#x5236;&#x7684;&#x662F;&#x5728;&#x4EFB;&#x52A1;
 <li>TimerThread &#x7EE7;&#x627F;Thread&#x7EBF;&#x7A0B;&#xFF0C;&#x5728;run&#x65B9;&#x6CD5;&#x4E2D;&#x5FAA;&#x73AF;&#x4ECE;TaskQueue&#x4E2D;&#x53D6;&#x51FA;&#x4E0B;&#x4E00;&#x4E2A;&#x5F85;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;TimerTask&#x7684;run&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x4EFB;&#x52A1;</li>
 <li>TaskQueue &#x5E95;&#x5C42;&#x662F;&#x4E00;&#x4E2A;TimerTask&#x6570;&#x7EC4;&#xFF0C;&#x6309;&#x7167;&#x5C0F;&#x9876;&#x5806;&#x7684;&#x7ED3;&#x6784;&#x5B58;&#x50A8;&#x4EFB;&#x52A1;&#xFF0C;&#x5176;&#x4E2D;&#x5C0F;&#x9876;&#x5806;&#x7684;&#x6392;&#x5E8F;&#x4F9D;&#x636E;&#x662F;&#x4EFB;&#x52A1;&#x7684;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x65F6;&#x95F4;&#xFF08;&#x5355;&#x4F4D;ms&#xFF09;</li>
 </ul>
-<p><img src="images/timer/timer.png" alt=""></p>
+<p><img src="images/timer/timer.jpg" alt=""></p>
 <p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;&#xFF1A;TimerTask&#x867D;&#x7136;&#x662F;&#x5B9E;&#x73B0;&#x4E86;Runable&#x63A5;&#x53E3;&#xFF0C;&#x4F46;&#x662F;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x65F6;&#x5E76;&#x4E0D;&#x662F;&#x4EE5;&#x65B0;&#x7684;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x5728;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x65F6;&#x8FD8;&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7684;run&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x5B9E;&#x73B0;Runable&#x63A5;&#x53E3;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x7EDF;&#x4E00;&#x4EFB;&#x52A1;&#x7684;&#x884C;&#x4E3A;</p>
 <h3 id="0x02-timertask">0x02 TimerTask</h3>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> java.util;
@@ -1182,10 +1236,14 @@ schedule&#x4EFB;&#x52A1;&#x63A7;&#x5236;&#x7684;&#x662F;&#x5728;&#x4EFB;&#x52A1;
 
             
                 
-                <a href="../定时任务/README.md" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 定时任务">
+                <a href="Introduction.html" class="navigation navigation-prev " aria-label="Previous page: Introduction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="ThreadPoolExecutor.html" class="navigation navigation-next " aria-label="Next page: ThreadPoolExecutor">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -1194,7 +1252,7 @@ schedule&#x4EFB;&#x52A1;&#x63A7;&#x5236;&#x7684;&#x662F;&#x5728;&#x4EFB;&#x52A1;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Timer","level":"1.4.1","depth":2,"previous":{"title":"定时任务","level":"1.4","depth":1,"path":"定时任务/README.md","ref":"定时任务/README.md","articles":[{"title":"Timer","level":"1.4.1","depth":2,"path":"Java定时任务/Timer.md","ref":"Java定时任务/Timer.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"}},"file":{"path":"Java定时任务/Timer.md","mtime":"2020-10-05T06:15:38.332Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-05T06:29:54.908Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Timer","level":"1.4.2","depth":2,"next":{"title":"ThreadPoolExecutor","level":"1.4.3","depth":2,"path":"Java定时任务/ThreadPoolExecutor.md","ref":"Java定时任务/ThreadPoolExecutor.md","articles":[]},"previous":{"title":"Introduction","level":"1.4.1","depth":2,"path":"Java定时任务/Introduction.md","ref":"Java定时任务/Introduction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"}},"file":{"path":"Java定时任务/Timer.md","mtime":"2020-10-17T05:26:39.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-17T05:37:52.944Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

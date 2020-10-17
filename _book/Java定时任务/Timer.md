@@ -85,7 +85,7 @@ Timer机制定时任务的原理如下图所示，共涉及4个类：
 - TimerThread 继承Thread线程，在run方法中循环从TaskQueue中取出下一个待执行的任务，然后调用TimerTask的run方法执行任务
 - TaskQueue 底层是一个TimerTask数组，按照小顶堆的结构存储任务，其中小顶堆的排序依据是任务的一次执行时间（单位ms）
 
-![](./images/timer/timer.png)
+![](./images/timer/timer.jpg)
 
 这里需要说明一下：TimerTask虽然是实现了Runable接口，但是任务执行时并不是以新的线程执行的，在任务执行时还是直接调用的run方法，这里实现Runable接口只是为了统一任务的行为
 
