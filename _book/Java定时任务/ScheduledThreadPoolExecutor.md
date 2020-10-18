@@ -1,4 +1,4 @@
 
-# ScheduleThreadPoolExecutor
+# ScheduledThreadPoolExecutor
 
-![](./images/ScheduleThreadPool/ScheduledThreadPool_1.jpg)
+![](./images/ScheduledThreadPoolExecutor/任务提交和执行流程图.jpg)
