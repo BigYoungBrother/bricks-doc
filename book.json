@@ -1,0 +1,32 @@
+{
+    "plugins": [
+        "-page-treeview",
+        "-lunr",
+        "-search",
+        "search-pro",
+        "-chapter-fold",
+        "splitter",
+        "back-to-top-button",
+        "theme-fexa",
+        "tbfed-pagefooter",
+        "lightbox",
+        "expandable-chapters-small"
+    ],
+    "pluginsConfig": {
+        "page-treeview": {
+            "copyright": "Copyright &#169; aleen42",
+            "minHeaderCount": "2",
+            "minHeaderDeep": "2"
+        },
+        "theme-fexa": {
+            "search-placeholder": "输入关键字搜索",
+            "logo": "./main_logo1.gif",
+            "favicon": ""
+        },
+        "tbfed-pagefooter": {
+            "copyright": "",
+            "modify_label": "该文件最后修改时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        }
+    }
+}
