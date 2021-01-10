@@ -15,7 +15,8 @@
 - [5. 结论](#5-结论)
 
 ## 1. 概述
-对于`Spring`和`SpringBoot`到底有什么区别，我一直没有看到值得一记的答案，直到看到了这篇文章[ps:本人不追溯文章的初始源，只记录看到文章的连接](https://mp.weixin.qq.com/s/0IDPJigYbUaFm6MmmdeJsA)，在次记录一下。
+
+[文章连接](https://mp.weixin.qq.com/s/0IDPJigYbUaFm6MmmdeJsA)，在次记录一下。
 
 [思维导图](spring和spring-boot的区别-思维导图.html)
 
