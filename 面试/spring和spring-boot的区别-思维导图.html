@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Markmap</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-}
-#mindmap {
-  display: block;
-  width: 100vw;
-  height: 100vh;
-}
-</style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.1.4/dist/style.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>spring和spring-boot的区别-思维导图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mindmap {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.1.4/dist/style.min.css">
 </head>
+
 <body>
-<svg id="mindmap"></svg>
-<script src="https://cdn.jsdelivr.net/npm/d3@6.3.0"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.0"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.1.4/dist/index.umd.min.js"></script><script>(r => {
-                setTimeout(r);
-              })(function anonymous(
-) {
-const toolbar = new markmap.Toolbar();
-toolbar.attach(mm);
-const el = toolbar.render();
-el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
-document.body.append(el);
-})</script><script>((getMarkmap, data) => {
-        const {
-          Markmap
-        } = getMarkmap();
-        window.mm = Markmap.create('svg#mindmap', null, data);
-      })(() => window.markmap,{"t":"heading","d":1,"p":{},"v":"Spring和Spring Boot的区别","c":[{"t":"heading","d":2,"p":{},"v":"什么是Spring","c":[{"t":"heading","d":3,"p":{},"v":"Spring框架为开发Java应用程序提供了全面的基础架构支持。它包含一些很好的功能，如依赖注入和开箱即用的模块，如：<code>SpringJDBC</code>、<code>SpringMVC</code>、<code>SpringSecurity</code>、<code>SpringAOP</code>、<code>SpringORM</code>、<code>SpringTest</code>"}]},{"t":"heading","d":2,"p":{},"v":"什么是Spring Boot","c":[{"t":"heading","d":3,"p":{},"v":"Spring Boot基本上是Spring框架的扩展，它消除了设置Spring应用程序所需的XML配置"},{"t":"heading","d":3,"p":{},"v":"创建独立的Spring应用；"},{"t":"heading","d":3,"p":{},"v":"嵌入Tomcat、Jetty、Undertow容器(无需部署war文件)"},{"t":"heading","d":3,"p":{},"v":"提供starters简化构建配置"},{"t":"heading","d":3,"p":{},"v":"尽可能自动装配Spring应用"},{"t":"heading","d":3,"p":{},"v":"提供生产指标，例如健壮检查和外部化配置"},{"t":"heading","d":3,"p":{},"v":"完全没有代码生成和XML配置要求"}]},{"t":"heading","d":2,"p":{},"v":"Spring和Spring Boot对别","c":[{"t":"heading","d":3,"p":{},"v":"配置","c":[{"t":"heading","d":4,"p":{},"v":"spring boot中有很多starter，已经按照默认的习惯配置，开箱即用"}]},{"t":"heading","d":3,"p":{},"v":"应用程序启动引导配置","c":[{"t":"heading","d":4,"p":{},"v":"spring一般需要依赖tomcat容器等启动，需要配置web.xml"},{"t":"heading","d":4,"p":{},"v":"spring Boot只需要在启动类上面注解<code>@SpringBootApplication</code>"}]},{"t":"heading","d":3,"p":{},"v":"部署","c":[{"t":"heading","d":4,"p":{},"v":"spring 需要tomcat等容器"},{"t":"heading","d":4,"p":{},"v":"spring Boot已经内嵌了Tomcat容器","c":[{"t":"heading","d":5,"p":{},"v":"提供嵌入式容器支持"},{"t":"heading","d":5,"p":{},"v":"使用命令<code>java -jar</code>独立运行<code>jar</code>"},{"t":"heading","d":5,"p":{},"v":"在外部容器中部署时，可以选择排除依赖关系以避免潜在的<code>jar</code>冲突"},{"t":"heading","d":5,"p":{},"v":"部署时灵活指定配置文件的选项"},{"t":"heading","d":5,"p":{},"v":"用于集成测试的随机端口生成"}]}]}]},{"t":"heading","d":2,"p":{},"v":"结论","c":[{"t":"heading","d":3,"p":{},"v":"<code>SpringBoot</code>只是<code>Spring</code>本身的扩展，使开发，测试和部署更加方便"}]}]})</script>
+    <svg id="mindmap"></svg>
+    <script src="https://cdn.jsdelivr.net/npm/d3@6.3.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.1.4/dist/index.umd.min.js"></script>
+    <script>(r => {
+            setTimeout(r);
+        })(function anonymous(
+        ) {
+            const toolbar = new markmap.Toolbar();
+            toolbar.attach(mm);
+            const el = toolbar.render();
+            el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+            document.body.append(el);
+        })</script>
+    <script>((getMarkmap, data) => {
+                    const {
+                        Markmap
+                    } = getMarkmap();
+                    window.mm = Markmap.create('svg#mindmap', null, data);
+                })(() => window.markmap, { "t": "heading", "d": 1, "p": {}, "v": "Spring和Spring Boot的区别", "c": [{ "t": "heading", "d": 2, "p": {}, "v": "什么是Spring", "c": [{ "t": "heading", "d": 3, "p": {}, "v": "Spring框架为开发Java应用程序提供了全面的基础架构支持。它包含一些很好的功能，如依赖注入和开箱即用的模块，如：<code>SpringJDBC</code>、<code>SpringMVC</code>、<code>SpringSecurity</code>、<code>SpringAOP</code>、<code>SpringORM</code>、<code>SpringTest</code>" }] }, { "t": "heading", "d": 2, "p": {}, "v": "什么是Spring Boot", "c": [{ "t": "heading", "d": 3, "p": {}, "v": "Spring Boot基本上是Spring框架的扩展，它消除了设置Spring应用程序所需的XML配置" }, { "t": "heading", "d": 3, "p": {}, "v": "创建独立的Spring应用；" }, { "t": "heading", "d": 3, "p": {}, "v": "嵌入Tomcat、Jetty、Undertow容器(无需部署war文件)" }, { "t": "heading", "d": 3, "p": {}, "v": "提供starters简化构建配置" }, { "t": "heading", "d": 3, "p": {}, "v": "尽可能自动装配Spring应用" }, { "t": "heading", "d": 3, "p": {}, "v": "提供生产指标，例如健壮检查和外部化配置" }, { "t": "heading", "d": 3, "p": {}, "v": "完全没有代码生成和XML配置要求" }] }, { "t": "heading", "d": 2, "p": {}, "v": "Spring和Spring Boot对别", "c": [{ "t": "heading", "d": 3, "p": {}, "v": "配置", "c": [{ "t": "heading", "d": 4, "p": {}, "v": "spring boot中有很多starter，已经按照默认的习惯配置，开箱即用" }] }, { "t": "heading", "d": 3, "p": {}, "v": "应用程序启动引导配置", "c": [{ "t": "heading", "d": 4, "p": {}, "v": "spring一般需要依赖tomcat容器等启动，需要配置web.xml" }, { "t": "heading", "d": 4, "p": {}, "v": "spring Boot只需要在启动类上面注解<code>@SpringBootApplication</code>" }] }, { "t": "heading", "d": 3, "p": {}, "v": "部署", "c": [{ "t": "heading", "d": 4, "p": {}, "v": "spring 需要tomcat等容器" }, { "t": "heading", "d": 4, "p": {}, "v": "spring Boot已经内嵌了Tomcat容器", "c": [{ "t": "heading", "d": 5, "p": {}, "v": "提供嵌入式容器支持" }, { "t": "heading", "d": 5, "p": {}, "v": "使用命令<code>java -jar</code>独立运行<code>jar</code>" }, { "t": "heading", "d": 5, "p": {}, "v": "在外部容器中部署时，可以选择排除依赖关系以避免潜在的<code>jar</code>冲突" }, { "t": "heading", "d": 5, "p": {}, "v": "部署时灵活指定配置文件的选项" }, { "t": "heading", "d": 5, "p": {}, "v": "用于集成测试的随机端口生成" }] }] }] }, { "t": "heading", "d": 2, "p": {}, "v": "结论", "c": [{ "t": "heading", "d": 3, "p": {}, "v": "<code>SpringBoot</code>只是<code>Spring</code>本身的扩展，使开发，测试和部署更加方便" }] }] })</script>
 </body>
+
 </html>
