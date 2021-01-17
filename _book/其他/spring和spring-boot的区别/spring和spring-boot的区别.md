@@ -1,10 +1,10 @@
 
 - [1. 概述](#1-概述)
 - [2. 什么是`Spring`](#2-什么是spring)
-- [3. 什么是SpringBoot](#3-什么是springboot)
-- [4. Spring和Spring Boot对比](#4-spring和spring-boot对比)
+- [3. 什么是`SpringBoot`](#3-什么是springboot)
+- [4. `Spring`和`Spring Boot`对比](#4-spring和spring-boot对比)
   - [01 配置](#01-配置)
-    - [0x01 Maven配置](#0x01-maven配置)
+    - [0x01 `Maven`配置](#0x01-maven配置)
     - [0x02 MVC配置](#0x02-mvc配置)
     - [0x03 配置模板引擎](#0x03-配置模板引擎)
     - [0x04 `SpringSecurity`配置](#0x04-springsecurity配置)
@@ -24,25 +24,25 @@
 
 作为Java开发人员，大家对Spring都不陌生，简而言之，Spring框架为开发Java应用程序提供了全面的基础架构支持。它包含一些很好的功能，如依赖注入和开箱即用的模块，如：`SpringJDBC`、`SpringMVC`、`SpringSecurity`、`SpringAOP`、`SpringORM`、`SpringTest`，这些模块缩短应用程序的开发时间，提高了应用开发的效率，例如在`JavaWeb`开发的早期阶段，我们需要编写大量的代码来将记录插入到数据库中，但是通过使用`SpringJDBC`模块的`JDBCTemplate`，我们可以将操作简化为几行代码。
 
-## 3. 什么是SpringBoot
+## 3. 什么是`SpringBoot`
 
-Spring Boot基本上是Spring框架的扩展，它消除了设置Spring应用程序所需的XML配置，为更快，更高效的开发生态系统铺平了道路。
+`Spring Boot`基本上是`Spring`框架的扩展，它消除了设置`Spring`应用程序所需的`XML`配置，为更快，更高效的开发生态系统铺平了道路。
 
-Spring Boot中的一些特征：
-1. 创建独立的Spring应用；
-2. 嵌入Tomcat、Jetty、Undertow容器(无需部署war文件)
-3. 提供starters简化构建配置
-4. 尽可能自动装配Spring应用
+`Spring Boot`中的一些特征：
+1. 创建独立的`Spring`应用；
+2. 嵌入`Tomcat`、`Jetty`、`Undertow`容器(无需部署`war`文件)
+3. 提供`starters`简化构建配置
+4. 尽可能自动装配`Spring`应用
 5. 提供生产指标，例如健壮检查和外部化配置
 6. 完全没有代码生成和XML配置要求
 
-## 4. Spring和Spring Boot对比
+## 4. `Spring`和`Spring Boot`对比
 
 ### 01 配置
 
-#### 0x01 Maven配置
+#### 0x01 `Maven`配置
 
-首先，让我们看一下使用Spring创建web应用程序所需的最小依赖项
+首先，让我们看一下使用`Spring`创建`web`应用程序所需的最小依赖项
 
 ```java
 <dependency>
@@ -57,7 +57,7 @@ Spring Boot中的一些特征：
 </dependency>
 ```
 
-与Spring不同，spring Boot只需要一个依赖项来启动和运行Web应用程序：
+与Spring不同，`spring Boot`只需要一个依赖项来启动和运行`Web`应用程序：
 
 ```java
 <dependency>
@@ -66,7 +66,7 @@ Spring Boot中的一些特征：
     <version>2.0.6.RELEASE</version>
 </dependency>
 ```
-SpringBoot在进行构建期间，所有其他依赖项将自动添加到项目中。
+`SpringBoot`在进行构建期间，所有其他依赖项将自动添加到项目中。
 
 另一个很好的例子就是测试库。我们通常使用`SpringTest`，`JUnit`，`Hamcrest`和`Mockito`库。在`Spring`项目中，我们应该将松油这些库添加为依赖项。但是在`Spring Boot`中，我们只需要添加`spring-boot-starter-test`依赖项来自动包含这些库。
 
