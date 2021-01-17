@@ -5,7 +5,7 @@
 - [4. `Spring`和`Spring Boot`对比](#4-spring和spring-boot对比)
   - [01 配置](#01-配置)
     - [0x01 `Maven`配置](#0x01-maven配置)
-    - [0x02 MVC配置](#0x02-mvc配置)
+    - [0x02 `MVC`配置](#0x02-mvc配置)
     - [0x03 配置模板引擎](#0x03-配置模板引擎)
     - [0x04 `SpringSecurity`配置](#0x04-springsecurity配置)
   - [02 应用程序启动引导配置](#02-应用程序启动引导配置)
@@ -74,7 +74,7 @@ Spring Boot为不同的Spring模块提供了许多依赖项。一些最常用的
 
 `spring-boot-starter-data-jpa`,`spring-boot-starter-security`,`spring-boot-starter-test`,`spring-boot-starter-web`,`spring-boot-starter-thymeleaf`
 
-#### 0x02 MVC配置
+#### 0x02 `MVC`配置
 
 让我们来看一下Spring和Spring Boot创建JSPWeb应用程序所需的配置。
 
