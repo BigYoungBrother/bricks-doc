@@ -164,6 +164,8 @@ CREATE TABLE `user` (
 
 ### 3.3 数据库集群模式
 
+
+
 ### 3.4 数据库号段模式
 
 ### 3.5 Redis/Zookeeper
@@ -180,3 +182,5 @@ CREATE TABLE `user` (
 
 - [分布式ID之UUID适合做分布式ID吗](https://www.itqiankun.com/article/1565060584)
 - [UUID/GUID介绍、生成规则及生成代码](https://blog.csdn.net/lizongti/article/details/109000359)
+- [分布式唯一 ID 生成方案，有点全！](https://blog.csdn.net/weixin_45727359/article/details/116573914)
+- [分布式唯一ID生成方案](https://zhuanlan.zhihu.com/p/88410901)
