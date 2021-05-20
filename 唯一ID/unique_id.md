@@ -11,7 +11,9 @@
       - [3.1.1 UUID概念](#311-uuid概念)
       - [3.1.2 UUID优缺点](#312-uuid优缺点)
       - [3.1.3 Java生成UUID](#313-java生成uuid)
-    - [3.2 MySQL自增](#32-mysql自增)
+    - [3.2 数据库自增](#32-数据库自增)
+      - [3.2.1 概念](#321-概念)
+      - [3.2.2 MySQL设置自增的方式](#322-mysql设置自增的方式)
     - [3.3 数据库集群模式](#33-数据库集群模式)
     - [3.4 数据库号段模式](#34-数据库号段模式)
     - [3.5 Redis/Zookeeper](#35-rediszookeeper)
@@ -125,9 +127,40 @@ Java内置了`java.util.UUID`类，其中内置了四种版本的UUID生成策�
     UUID.randomUUID().toString();
 ```
 
+### 3.2 数据库自增
 
+#### 3.2.1 概念
 
-### 3.2 MySQL自增
+使用数据库的id自增策略,比如Mysql的auto_increment
+
+**优点**
+
+- ID单调递增，对业务友好，利于分页和排序；
+- 简单，代码中无需设置，只需要在建表时设置主机递增即可；
+
+**缺点**
+
+- 依赖数据库, 性能存在瓶颈
+- 单库时使用方便,分库分表后就难受了
+- 难以扩展
+- 只能主库生成,单点故障了就gg了
+- 数据库语法不同,迁移时需要考虑
+- 容易泄密,比如订单号是递增的,那么可以猜到别人的订单号
+
+#### 3.2.2 MySQL设置自增的方式
+
+只需设置主键自增即可,如下面的建表语句
+
+```SQL
+CREATE TABLE `user` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(64) NOT NULL COMMENT '名字',
+  `nick_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '昵称',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+```
 
 ### 3.3 数据库集群模式
 
