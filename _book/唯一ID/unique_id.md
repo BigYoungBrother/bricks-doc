@@ -37,8 +37,9 @@
       - [3.6.3 实现](#363-实现)
     - [3.7 美团Leaf算法](#37-美团leaf算法)
     - [3.8 百度uid-generator](#38-百度uid-generator)
-    - [3.9 滴滴TinyId](#39-滴滴tinyid)
-  - [4 参考资料](#4-参考资料)
+    - [3.9 TinyId](#39-tinyid)
+  - [4 分布式ID生成方案总结](#4-分布式id生成方案总结)
+  - [5 参考资料](#5-参考资料)
 
 
 # 分布式唯一ID
@@ -254,6 +255,8 @@ set @@auto_increment_increment = 6;  -- 步长
 
 - 实例挂了, 则缓存的号段就丢失了
 - 应用自身需保证线程安全, 可以采用AtomicLong的方式来保证
+- 如果在号段耗尽后再去数据库取新的号段, 如果并发较高, 那么取号段的操作也会出现竞争严重的场景, 导致数据库压力较大, 一种解决方案是采用双buffer的方案, 即当第一个号段buffer1耗尽10%的时候, 开启一个线程取数据库中取号段缓存到另外一个buffer2中, 当第一个buffer1耗尽后能够立即切换到buffer2中;
+- 不够随机, 订单场景不适用, 如果每天中午12点下单, 订单号相减能够大致推断出一天的订单量. 
 
 #### 3.4.3 实现
 
@@ -530,11 +533,53 @@ public class SnowflakeIdGenerator {
 
 ### 3.7 美团Leaf算法
 
+推荐原系统的设计和开发者写的[Leaf——美团点评分布式ID生成系统](https://tech.meituan.com/2017/04/21/mt-leaf.html), 已经非常详细了, 小的就不再班门弄斧了
+
+另外这篇也值得一看 [Leaf：美团的分布式唯一ID方案深入剖析](https://www.jianshu.com/p/bd6b00e5f5ac?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
+
+美团Leaf算法有两种模式:
+
+- segment模式: 即数据库号段模式, 优缺点在上文已经讨论过了;
+- snowflake模式: 其主要有以下几点优化
+  - 解决时钟回退问题: 周期性上传实例时间戳到zookeeper中, 生成ID时获取的时间戳会与Zookeeper的时间戳比较, 但是并没有完全解决问题, 如果时钟回退超过5ms还是会抛出异常;
+  - 弱依赖zookeeper, 采用zookeeper持久化节点信息(即雪花算法中的实例节点信息), 但是引入zookeepery也是需要成本的
+
 ### 3.8 百度uid-generator
 
-### 3.9 滴滴TinyId
+- [UidGenerator](https://github.com/baidu/uid-generator/blob/master/README.zh_cn.md)
+- [UidGenerator：百度开源的分布式ID服务（解决了时钟回拨问题）](https://mp.weixin.qq.com/s/8NsTXexf03wrT0tsW24EHA)
+- [百度开源分布式id生成器uid-generator源码剖析](https://www.cnblogs.com/yeyang/p/10226284.html)
 
-## 4 参考资料
+百度uid-generator也是类snowflake算法, 其主要特点有:
+
+- 调整雪花算法的位数, 机器节点数增大
+- 弱依赖时间戳, 采用当前时间(秒)和系统上线时间的差值
+- 加入缓存机制, 更高的性能
+- 实例信息从数据库中获取, 每次重启实例序号 + 1
+
+### 3.9 TinyId
+
+[TinyId](https://github.com/didi/tinyid/wiki)
+[滴滴开源的Tinyid如何每天生成亿级别的ID？](https://jishuin.proginn.com/p/763bfbd288fc)
+
+- Tinyid是用Java开发的一款分布式id生成系统，基于数据库号段算法实现, 简单来说是数据库中保存了可用的id号段，tinyid会将可用号段加载到内存中，之后生成id会直接内存中产生。
+- 可用号段在第一次获取id时加载，如当前号段使用达到一定量时，会异步加载下一可用号段，保证内存中始终有可用号段。(如可用号段1~1000被加载到内存，则获取id时，会从1开始递增获取，当使用到一定百分比时，如20%(默认)，即200时，会异步加载下一可用号段到内存，假设新加载的号段是1001~2000,则此时内存中可用号段为200~1000,1001~2000)，当id递增到1000时，当前号段使用完毕，下一号段会替换为当前号段。依次类推。
+
+![TinyId](./images/TinyId.png)
+
+TinyId的主要特点有:
+
+- 采用数据库号段模式
+- 使用了双缓存的逻辑
+- 多DB支持(数据库集群模式)
+
+## 4 分布式ID生成方案总结
+
+- 分布式ID生成方案大致分为2种, 一是基于数据库或者redis的生成方案, 二是类雪花算法生成方案
+- 雪花算法生成方案中, 存在时钟回退问题, 时钟回退的问题可以使用记录下上次生成的时间戳(引入数据库或者中间件), 当生成ID时对比下当前时间和记录的时间戳, 如果发生时钟回退,那么抛出异常或者将阻塞等待. 
+- 数据库或者redis的生成方案中, 存在难以扩展和数据库性能问题, 衍生出数据库集群模式的方案和号段模式的方案, 号段模式为了防止耗尽时的高并发, 一般采用双缓存的解决方案.
+
+## 5 参考资料
 
 - [分布式ID之UUID适合做分布式ID吗](https://www.itqiankun.com/article/1565060584)
 - [UUID/GUID介绍、生成规则及生成代码](https://blog.csdn.net/lizongti/article/details/109000359)
@@ -543,4 +588,9 @@ public class SnowflakeIdGenerator {
 - [一口气说出9种分布式ID生成方式，面试官有点懵了](https://zhuanlan.zhihu.com/p/107939861)
 - [这可能是讲雪花算法最全的文章](https://cloud.tencent.com/developer/article/1676937)
 - [分布式ID神器之雪花算法简介](https://zhuanlan.zhihu.com/p/85837641)
-
+- [Leaf——美团点评分布式ID生成系统](https://tech.meituan.com/2017/04/21/mt-leaf.html)
+- [UidGenerator](https://github.com/baidu/uid-generator/blob/master/README.zh_cn.md)
+- [UidGenerator：百度开源的分布式ID服务（解决了时钟回拨问题）](https://mp.weixin.qq.com/s/8NsTXexf03wrT0tsW24EHA)
+- [百度开源分布式id生成器uid-generator源码剖析](https://www.cnblogs.com/yeyang/p/10226284.html)
+- [TinyId](https://github.com/didi/tinyid/wiki)
+- [滴滴开源的Tinyid如何每天生成亿级别的ID？](https://jishuin.proginn.com/p/763bfbd288fc)
