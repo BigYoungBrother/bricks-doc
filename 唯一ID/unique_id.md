@@ -253,7 +253,6 @@ set @@auto_increment_increment = 6;  -- 步长
 ##### 3.4.3.1 乐观锁实现
 
 ```SQL
-
 CREATE TABLE id_generator (
   id int(10) NOT NULL,
   max_id bigint(20) NOT NULL COMMENT '当前最大id',
@@ -274,7 +273,6 @@ CREATE TABLE id_generator (
 ##### 3.4.3.2 悲观锁实现
 
 ```SQL
-
 CREATE TABLE id_generator (
   id int(10) NOT NULL,
   max_id bigint(20) NOT NULL COMMENT '当前最大id',
@@ -306,7 +304,6 @@ CREATE TABLE id_generator (
 利用redis的 incr命令实现ID的原子性自增。
 
 ```
-
 127.0.0.1:6379> set seq_id 1     // 初始化自增ID为1
 OK
 127.0.0.1:6379> incr seq_id      // 增加1，并返回递增后的数值
@@ -334,7 +331,6 @@ OK
 先设置RedisTemplate：
 
 ```Java
-
     @Bean
 	public RedisTemplate<String, Serializable> getDefaultRedisTemplate(RedisConnectionFactory cf, RedisSerializer<?> rs) {
 		RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<String, Serializable>();
@@ -348,7 +344,6 @@ OK
 接下来实现ID生成逻辑：
 
 ```java
-
     public long generate(String key,int increment) {
 		RedisAtomicLong counter = new RedisAtomicLong(key, mRedisTemp.getConnectionFactory());
 		return counter.addAndGet(increment);
