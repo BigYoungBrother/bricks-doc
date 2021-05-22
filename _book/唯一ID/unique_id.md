@@ -32,6 +32,9 @@
       - [3.5.2 优缺点](#352-优缺点)
       - [3.5.3 实现(redis自增模式的实现)](#353-实现redis自增模式的实现)
     - [3.6 雪花算法](#36-雪花算法)
+      - [3.6.1 原理](#361-原理)
+      - [3.6.2 优缺点](#362-优缺点)
+      - [3.6.3 实现](#363-实现)
     - [3.7 美团Leaf算法](#37-美团leaf算法)
     - [3.8 百度uid-generator](#38-百度uid-generator)
     - [3.9 滴滴TinyId](#39-滴滴tinyid)
@@ -50,7 +53,7 @@
 
 分布式唯一ID, 应该拆开来解释: 
 
-- 唯一ID, 顾名思义, 这个就不用多解释了
+- 唯一ID: 顾名思义, 这个就不用多解释了
 - 分布式: 分布式对应的是单机应用, 单机应用中唯一ID即是唯一ID，而分库分表应用中多实例之间, 各微服务应用之间全局唯一的ID即是分布式式唯一ID
 
 ### 2.2 分布式唯一ID的特性
@@ -359,7 +362,171 @@ OK
 
 ### 3.6 雪花算法
 
+Twitter公司开源的一种算法, 全局唯一并且趋势递增
 
+#### 3.6.1 原理
+
+![snowflake](./images/snowflake.png)
+
+雪花算法生成的是8字节64bit长度的数字(long类型), 能够保证趋势递增的ID生成, 而且生成效率极高
+
+**雪花算法组成**
+
+- 第1位: 占用1bit，其值始终是0，保证生成的ID是正数;
+- 第2- 42位: 时间戳, 占用41bit，精确到毫秒，总共可以容纳约69年的时间;
+- 第43-52位: 工作机器id, 占用10bit，其中高位5bit是数据中心ID，低位5bit是工作节点ID，做多可以容纳1024个节点;
+- 第53-64位:序列号,占用12bit，每个节点每毫秒0开始不断累加，最多可以累加到4095，一共可以产生4096个ID。
+
+SnowFlake算法在同一毫秒内最多可以生成的ID数量为: 1024 * 4096 = 4194304
+
+#### 3.6.2 优缺点
+
+**优点**
+
+- 基于时间戳，可以保证基本有序递增
+- 不依赖第三方的库或者中间件, 在实例上生成, 可以保证高可用
+- 生成效率极高, 满足高性能的要求
+
+**缺点**
+
+- 依赖机器时间, 如果发生时钟回退, ID可能重复
+
+#### 3.6.3 实现
+
+```java
+/**
+ * 雪花算法
+ *
+ * @author Young
+ * @Date 2021-05-22 17:04
+ */
+public class SnowflakeIdGenerator {
+
+    /**
+     * 开始时间截 (这个用自己业务系统上线的时间)
+     */
+    private static final long START_TIMESTAMP = 1575365018000L;
+
+    /**
+     * 机器id所占的位数
+     */
+    private static final long WORKER_ID_BITS_LENGTH = 10L;
+
+    /**
+     * 支持的最大机器id，结果是31 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数)
+     */
+    private static final long MAX_WORKER_ID = -1L ^ (-1L << WORKER_ID_BITS_LENGTH);
+
+    /**
+     * 序列在id中占的位数
+     */
+    private static final long SEQUENCE_BITS_LENGTH = 12L;
+
+    /**
+     * 机器ID向左移12位
+     */
+    private static final long WORKER_ID_SHIFT_LENGTH = SEQUENCE_BITS_LENGTH;
+
+    /**
+     * 时间截向左移22位(10+12)
+     */
+    private static final long TIMESTAMP_LEFT_SHIFT_LENGTH = SEQUENCE_BITS_LENGTH + WORKER_ID_BITS_LENGTH;
+
+    /**
+     * 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)
+     */
+    private static final long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS_LENGTH);
+
+    /**
+     * 工作机器ID(0~1024)
+     */
+    private long workerId;
+
+    /**
+     * 毫秒内序列(0~4095)
+     */
+    private long sequence = 0L;
+
+    /**
+     * 上次生成ID的时间截
+     */
+    private long lastTimestamp = -1L;
+
+
+    /**
+     * 构造函数
+     *
+     * @param workerId 工作ID (0~1024)
+     */
+    public SnowflakeIdGenerator(long workerId) {
+        if (workerId > MAX_WORKER_ID || workerId < 0) {
+            throw new IllegalArgumentException(String.format("workerId can't be greater than %d or less than 0", MAX_WORKER_ID));
+        }
+        this.workerId = workerId;
+    }
+
+    // ==============================Methods==========================================
+
+    /**
+     * 获得下一个ID (该方法是线程安全的)
+     *
+     * @return SnowflakeId
+     */
+    public synchronized long nextId() {
+        long timestamp = currentTimestampMillis();
+
+        // 时钟回退处理, 时钟回退一般是10ms内
+        if (timestamp < lastTimestamp) {
+            // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过, 这个时候取上次时间戳作为当前时间
+            timestamp = lastTimestamp;
+        }
+
+        if (lastTimestamp == timestamp) {
+            // 如果是同一时间生成的，则进行毫秒内序列
+            sequence = (sequence + 1) & SEQUENCE_MASK;
+            // 毫秒内序列溢出
+            if (sequence == 0) {
+                // 阻塞到下一个毫秒,获得新的时间戳
+                timestamp = nextTimestampMillis(lastTimestamp);
+            }
+        } else {
+            //时间戳改变，毫秒内序列重置
+            sequence = 0L;
+        }
+        // 更新上次生成ID的时间截
+        lastTimestamp = timestamp;
+
+        //移位并通过或运算拼到一起组成64位的ID
+        return ((timestamp - START_TIMESTAMP) << TIMESTAMP_LEFT_SHIFT_LENGTH)
+                | (workerId << WORKER_ID_SHIFT_LENGTH)
+                | sequence;
+    }
+
+    /**
+     * 阻塞到下一个毫秒，直到获得新的时间戳
+     *
+     * @param lastTimestamp 上次生成ID的时间截
+     * @return 当前时间戳
+     */
+    private long nextTimestampMillis(long lastTimestamp) {
+        long timestamp = currentTimestampMillis();
+        while (timestamp <= lastTimestamp) {
+            timestamp = currentTimestampMillis();
+        }
+        return timestamp;
+    }
+
+    /**
+     * 返回以毫秒为单位的当前时间
+     *
+     * @return 当前时间(毫秒)
+     */
+    private long currentTimestampMillis() {
+        return System.currentTimeMillis();
+    }
+
+}
+```
 
 ### 3.7 美团Leaf算法
 
@@ -374,3 +541,6 @@ OK
 - [分布式唯一 ID 生成方案，有点全！](https://blog.csdn.net/weixin_45727359/article/details/116573914)
 - [分布式唯一ID生成方案](https://zhuanlan.zhihu.com/p/88410901)
 - [一口气说出9种分布式ID生成方式，面试官有点懵了](https://zhuanlan.zhihu.com/p/107939861)
+- [这可能是讲雪花算法最全的文章](https://cloud.tencent.com/developer/article/1676937)
+- [分布式ID神器之雪花算法简介](https://zhuanlan.zhihu.com/p/85837641)
+
