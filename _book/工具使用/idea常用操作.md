@@ -22,6 +22,10 @@
 
 下文整理的是**windows/linux**的格式的快捷键
 
+**如何查看自己的KeyMap?**
+
+![](./images/key_map.png)
+
 ### 2.1 编辑
 
 - Ctrl + P : 查看方法参数
