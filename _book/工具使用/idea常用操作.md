@@ -11,7 +11,10 @@
 
 ### 1.1 设置Ctrl+滚轮 放大/缩小 编辑窗口
 
-![](./images/ctrl_wheel.png)
+<div style="align: center">
+    <img src="./images/ctrl_wheel.png"/>
+</div>
+
 
 ## 2. 快捷键
 
