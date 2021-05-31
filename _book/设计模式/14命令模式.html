@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>03建造者模式 · 每日搬砖</title>
+        <title>06装饰器模式 · 每日搬砖</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -81,10 +81,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="04原型模式.html" />
+    <link rel="next" href="15解释器模式.html" />
     
     
-    <link rel="prev" href="02单例模式.html" />
+    <link rel="prev" href="13责任链模式.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4" data-path="03建造者模式.html">
+        <li class="chapter " data-level="1.2.4" data-path="03建造者模式.html">
             
                 <a href="03建造者模式.html">
             
@@ -350,7 +350,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.15" data-path="14命令模式.html">
+        <li class="chapter active" data-level="1.2.15" data-path="14命令模式.html">
             
                 <a href="14命令模式.html">
             
@@ -549,7 +549,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >03建造者模式</a>
+        <a href=".." >06装饰器模式</a>
     </h1>
 </div>
 
@@ -564,133 +564,8 @@
     
 					<section class="normal markdown-section">
 						
-						<ul>
-<li><a href="#&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;">&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;</a></li>
-</ul>
-<h1 id="&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;">&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;</h1>
-<p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x662F;&#x7531;&#x591A;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF08;Component&#xFF09;&#x7EC4;&#x5408;&#x800C;&#x6210;&#xFF0C;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x5EFA;&#x7ACB;&#x90FD;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x4F46;&#x8FD0;&#x7528;&#x7EC4;&#x4EF6;&#x6765;&#x5EFA;&#x7ACB;&#x6240;&#x9700;&#x7684;&#x5BF9;&#x8C61;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x6784;&#x5EFA;&#x590D;&#x6742;&#x7EC4;&#x4EF6;&#x7684;&#x6B65;&#x9AA4;&#x4E0E;&#x8FD0;&#x7528;&#x7EC4;&#x4EF6;&#x6784;&#x5EFA;&#x5BF9;&#x8C61;&#x5206;&#x79BB;&#xFF0C;&#x4F7F;&#x7528;builder&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x3002;</p>
-<p>&#x5EFA;&#x9020;&#x578B;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x7A33;&#x5B9A;&#xFF0C;&#x4F46;&#x914D;&#x7F6E;&#x591A;&#x53D8;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5BF9;&#x8C61;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x6784;&#x5EFA;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
-<p>&#x73B0;&#x5728;&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x901A;&#x8FC7;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x751F;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x8981;&#x5236;&#x4F5C;&#x4E00;&#x676F;&#x73CD;&#x73E0;&#x5976;&#x8336;&#x3002;&#x5B83;&#x7684;&#x5236;&#x4F5C;&#x8FC7;&#x7A0B;&#x662F;&#x7A33;&#x5B9A;&#x7684;&#xFF0C;&#x9664;&#x4E86;&#x5FC5;&#x987B;&#x8981;&#x77E5;&#x9053;&#x5976;&#x8336;&#x7684;&#x79CD;&#x7C7B;&#x548C;&#x89C4;&#x683C;&#x5916;&#xFF0C;&#x662F;&#x5426;&#x52A0;&#x73CD;&#x73E0;&#x548C;&#x662F;&#x5426;&#x52A0;&#x51B0;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;&#x4F7F;&#x7528;&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;&#x8868;&#x793A;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MilkTea</span> </span>{
-
-    <span class="hljs-keyword">private</span>  String type;
-
-    <span class="hljs-keyword">private</span> String size;
-
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> pearl;
-
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> ice;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MilkTea</span><span class="hljs-params">(Builder builder)</span> </span>{
-        <span class="hljs-keyword">this</span>.type = builder.getType();
-        <span class="hljs-keyword">this</span>.size = builder.getSize();
-        <span class="hljs-keyword">this</span>.pearl = builder.getPearl();
-        <span class="hljs-keyword">this</span>.ice = builder.getIce();
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> type;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setType</span><span class="hljs-params">(String type)</span> </span>{
-        <span class="hljs-keyword">this</span>.type = type;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> size;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setSize</span><span class="hljs-params">(String size)</span> </span>{
-        <span class="hljs-keyword">this</span>.size = size;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isPearl</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> pearl;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPearl</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> pearl)</span> </span>{
-        <span class="hljs-keyword">this</span>.pearl = pearl;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isIce</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> ice;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setIce</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> ice)</span> </span>{
-        <span class="hljs-keyword">this</span>.ice = ice;
-    }
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;MilkTea{&quot;</span> +
-                <span class="hljs-string">&quot;type=&apos;&quot;</span> + type + <span class="hljs-string">&apos;\&apos;&apos;</span> +
-                <span class="hljs-string">&quot;, size=&apos;&quot;</span> + size + <span class="hljs-string">&apos;\&apos;&apos;</span> +
-                <span class="hljs-string">&quot;, pearl=&quot;</span> + pearl +
-                <span class="hljs-string">&quot;, ice=&quot;</span> + ice +
-                <span class="hljs-string">&apos;}&apos;</span>;
-    }
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Builder</span></span>{
-
-        <span class="hljs-keyword">private</span>  String type = <span class="hljs-string">&quot;&#x539F;&#x5473;&quot;</span>;
-
-        <span class="hljs-keyword">private</span> String size = <span class="hljs-string">&quot;&#x4E2D;&#x676F;&quot;</span>;
-
-        <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> pearl = <span class="hljs-keyword">false</span>;
-
-        <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> ice = <span class="hljs-keyword">false</span>;
-
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">setType</span><span class="hljs-params">(String type)</span> </span>{
-            <span class="hljs-keyword">this</span>.type = type;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">setSize</span><span class="hljs-params">(String size)</span> </span>{
-            <span class="hljs-keyword">this</span>.size = size;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">setPearl</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> pearl)</span> </span>{
-            <span class="hljs-keyword">this</span>.pearl = pearl;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">setIce</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> ice)</span> </span>{
-            <span class="hljs-keyword">this</span>.ice = ice;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>{
-            <span class="hljs-keyword">return</span> type;
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
-            <span class="hljs-keyword">return</span> size;
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">getPearl</span><span class="hljs-params">()</span> </span>{
-            <span class="hljs-keyword">return</span> pearl;
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">getIce</span><span class="hljs-params">()</span> </span>{
-            <span class="hljs-keyword">return</span> ice;
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> MilkTea <span class="hljs-title">build</span><span class="hljs-params">()</span></span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MilkTea(<span class="hljs-keyword">this</span>);
-        }
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        MilkTea milkTea = <span class="hljs-keyword">new</span> Builder().setType(<span class="hljs-string">&quot;111&quot;</span>).setSize(<span class="hljs-string">&quot;&#x5927;&#x676F;&quot;</span>).build();
-        System.out.println(milkTea.toString());
-    }
-
-}
-</code></pre>
-<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2021-05-28 18:49:17
+						<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2021-05-31 22:11:39
 </span></footer>
 						
 					</section>
@@ -718,12 +593,12 @@
 
 		
 		
-		<a href="02单例模式.html" class="navigation navigation-prev " aria-label="Previous page: 02单例模式">
+		<a href="13责任链模式.html" class="navigation navigation-prev " aria-label="Previous page: 06装饰器模式">
 			<i class="fa fa-angle-left"></i>
 		</a>
 		
 		
-		<a href="04原型模式.html" class="navigation navigation-next " aria-label="Next page: 04原型模式">
+		<a href="15解释器模式.html" class="navigation navigation-next " aria-label="Next page: 06装饰器模式">
 			<i class="fa fa-angle-right"></i>
 		</a>
 		
@@ -733,7 +608,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"03建造者模式","level":"1.2.4","depth":2,"next":{"title":"04原型模式","level":"1.2.5","depth":2,"path":"设计模式/04原型模式.md","ref":"设计模式/04原型模式.md","articles":[]},"previous":{"title":"02单例模式","level":"1.2.3","depth":2,"path":"设计模式/02单例模式.md","ref":"设计模式/02单例模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/03建造者模式.md","mtime":"2021-05-28T10:49:17.678Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-31T14:14:39.387Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"06装饰器模式","level":"1.2.15","depth":2,"next":{"title":"06装饰器模式","level":"1.2.16","depth":2,"path":"设计模式/15解释器模式.md","ref":"设计模式/15解释器模式.md","articles":[]},"previous":{"title":"06装饰器模式","level":"1.2.14","depth":2,"path":"设计模式/13责任链模式.md","ref":"设计模式/13责任链模式.md","articles":[]},"dir":"neutral"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/14命令模式.md","mtime":"2021-05-31T14:11:39.196Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-31T14:14:39.387Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
