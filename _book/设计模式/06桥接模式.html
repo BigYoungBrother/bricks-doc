@@ -564,8 +564,119 @@
     
 					<section class="normal markdown-section">
 						
-						<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2021-05-31 22:11:02
+						<ul>
+<li><a href="#&#x6865;&#x63A5;&#x6A21;&#x5F0F;">&#x6865;&#x63A5;&#x6A21;&#x5F0F;</a></li>
+</ul>
+<h1 id="&#x6865;&#x63A5;&#x6A21;&#x5F0F;">&#x6865;&#x63A5;&#x6A21;&#x5F0F;</h1>
+<p>&#x6865;&#x63A5;&#x6A21;&#x5F0F;(Bridge Pattern)&#x901A;&#x8FC7;&#x5C06;&#x62BD;&#x8C61;&#x53CA;&#x5176;&#x5B9E;&#x73B0;&#x89E3;&#x8026;&#xFF0C;&#x4F7F;&#x4E8C;&#x8005;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x6C42;&#x72EC;&#x7ACB;&#x53D8;&#x5316;&#x3002;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x5728;&#x9700;&#x6C42;&#x591A;&#x53D8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#x9020;&#x6210;&#x7C7B;&#x7206;&#x70B8;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6269;&#x5C55;&#x8D77;&#x6765;&#x4E0D;&#x591F;&#x7075;&#x6D3B;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x5C06;&#x62BD;&#x8C61;&#x90E8;&#x5206;&#x548C;&#x5B9E;&#x73B0;&#x90E8;&#x5206;&#x76F8;&#x5206;&#x79BB;&#xFF0C;&#x4F7F;&#x5176;&#x80FD;&#x591F;&#x72EC;&#x7ACB;&#x53D8;&#x5316;&#x800C;&#x76F8;&#x4E92;&#x4E4B;&#x95F4;&#x7684;&#x529F;&#x80FD;&#x4E0D;&#x53D7;&#x5F71;&#x54CD;&#x3002;&#x5177;&#x4F53;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x901A;&#x8FC7;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6865;&#x63A5;&#x63A5;&#x53E3;&#xFF0C;&#x4F7F;&#x5F97;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x529F;&#x80FD;&#x72EC;&#x7ACB;&#x4E8E;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x964D;&#x4F4E;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x3002;</p>
+<p>&#x6865;&#x63A5;&#xFF08;Bridge&#xFF09;&#x6A21;&#x5F0F;&#x7684;&#x4F18;&#x70B9;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x7531;&#x4E8E;&#x62BD;&#x8C61;&#x4E0E;&#x5B9E;&#x73B0;&#x5206;&#x79BB;&#xFF0C;&#x6240;&#x4EE5;&#x6269;&#x5C55;&#x80FD;&#x529B;&#x5F3A;&#xFF1B;</li>
+<li>&#x5176;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x5BF9;&#x5BA2;&#x6237;&#x900F;&#x660E;&#x3002;</li>
+</ul>
+<p>&#x7F3A;&#x70B9;&#x662F;&#xFF1A;&#x7531;&#x4E8E;&#x805A;&#x5408;&#x5173;&#x7CFB;&#x5EFA;&#x7ACB;&#x5728;&#x62BD;&#x8C61;&#x5C42;&#xFF0C;&#x8981;&#x6C42;&#x5F00;&#x53D1;&#x8005;&#x9488;&#x5BF9;&#x62BD;&#x8C61;&#x5316;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;&#x4E0E;&#x7F16;&#x7A0B;&#xFF0C;&#x8FD9;&#x589E;&#x52A0;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x7406;&#x89E3;&#x4E0E;&#x8BBE;&#x8BA1;&#x96BE;&#x5EA6;&#x3002;</p>
+<p>&#x7B26;&#x5408;&#x5408;&#x6210;/&#x805A;&#x5408;&#x539F;&#x5219;</p>
+<p>&#x7EE7;&#x627F;&#x867D;&#x7136;&#x662F;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x4E09;&#x5927;&#x7279;&#x6027;&#x4E4B;&#x4E00;&#xFF0C;&#x4F46;&#x7EE7;&#x627F;&#x4F1A;&#x5BFC;&#x81F4;&#x5B50;&#x7C7B;&#x4E0E;&#x7236;&#x7C7B;&#x6709;&#x975E;&#x5E38;&#x7D27;&#x5BC6;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x5B83;&#x4F1A;&#x9650;&#x5236;&#x5B50;&#x7C7B;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x548C;&#x5B50;&#x7C7B;&#x7684;&#x590D;&#x7528;&#x6027;&#x3002;&#x800C;&#x4F7F;&#x7528;&#x5408;&#x6210;/&#x805A;&#x5408;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5C31;&#x4E0D;&#x5B58;&#x5728;&#x4F9D;&#x8D56;&#x95EE;&#x9898;&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x591A;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x5730;&#x62D3;&#x5C55;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x7684;&#x5178;&#x578B;&#x4F8B;&#x5B50;&#x662F;&#x662F;JDBC&#x548C;DriverManager&#xFF0C;JDBC&#x5728;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x65F6;&#xFF0C;&#x5728;&#x5404;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x5207;&#x6362;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#xFF0C;&#x56E0;&#x4E3A;JDBC&#x63D0;&#x4F9B;&#x4E86;&#x7EDF;&#x4E00;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x5404;&#x81EA;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x53EB;&#x505A;&#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x7684;&#x7A0B;&#x5E8F;&#x6765;&#x5B9E;&#x73B0;&#x6865;&#x63A5;&#x5373;&#x53EF;&#x3002;&#x5176;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><a href="images/Bridge.png" data-lightbox="95287f80-a41c-4cf0-9d1f-215deaa1b7c1" data-title=""><img src="images/Bridge.png" alt=""></a></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * &#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x63A5;&#x53E3;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-01 21:16
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DbDriver</span> </span>{
+
+    <span class="hljs-comment">/**
+     * &#x6267;&#x884C;SQL
+     * <span class="hljs-doctag">@param</span> sqlStr
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">(String sqlStr)</span></span>;
+
+}
+
+<span class="hljs-comment">/**
+ * MySQL&#x9A71;&#x52A8;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-01 21:17
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySqlDbDriver</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DbDriver</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">(String sqlStr)</span> </span>{
+        System.out.println(String.format(<span class="hljs-string">&quot;I am MySQL: %s&quot;</span>, sqlStr));
+    }
+}
+
+<span class="hljs-comment">/**
+ * Oracle
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-01 21:19
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OracleDbDriver</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DbDriver</span></span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">(String sqlStr)</span> </span>{
+        System.out.println(String.format(<span class="hljs-string">&quot;I am Oracle: %s&quot;</span>, sqlStr));
+    }
+}
+
+<span class="hljs-comment">/**
+ * &#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x6865;&#x63A5;&#x7684;&#x6865;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-01 21:20
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DbDriverBridge</span> </span>{
+
+    <span class="hljs-keyword">private</span> DbDriver dbDriver;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setDbDriver</span><span class="hljs-params">(DbDriver dbDriver)</span> </span>{
+        <span class="hljs-keyword">this</span>.dbDriver = dbDriver;
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6267;&#x884C;SQL
+     *
+     * <span class="hljs-doctag">@param</span> sqlStr
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">(String sqlStr)</span> </span>{
+        dbDriver.execute(sqlStr);
+    }
+
+}
+
+<span class="hljs-comment">/**
+ * &#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x6D4B;&#x8BD5;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-01 21:21
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DbDriverBridgeTest</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        DbDriver oracleDriver = <span class="hljs-keyword">new</span> OracleDbDriver();
+        DbDriver mySqlDriver = <span class="hljs-keyword">new</span> MySqlDbDriver();
+
+        DbDriverBridge dbDriverBridge = <span class="hljs-keyword">new</span> DbDriverBridge();
+        dbDriverBridge.setDbDriver(mySqlDriver);
+        dbDriverBridge.execute(<span class="hljs-string">&quot;MySQL&quot;</span>);
+
+        dbDriverBridge.setDbDriver(oracleDriver);
+        dbDriverBridge.execute(<span class="hljs-string">&quot;Oracle&quot;</span>);
+
+    }
+
+}
+
+&#x8F93;&#x51FA;&#xFF1A;
+
+I am MySQL: MySQL
+I am Oracle: Oracle
+</code></pre>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2021-06-01 21:29:28
 </span></footer>
 						
 					</section>
@@ -608,7 +719,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"06桥接模式","level":"1.2.7","depth":2,"next":{"title":"07过滤器模式","level":"1.2.8","depth":2,"path":"设计模式/07过滤器模式.md","ref":"设计模式/07过滤器模式.md","articles":[]},"previous":{"title":"05适配器模式","level":"1.2.6","depth":2,"path":"设计模式/05适配器模式.md","ref":"设计模式/05适配器模式.md","articles":[]},"dir":"neutral"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/06桥接模式.md","mtime":"2021-05-31T14:11:02.566Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-31T14:16:14.041Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"06桥接模式","level":"1.2.7","depth":2,"next":{"title":"07过滤器模式","level":"1.2.8","depth":2,"path":"设计模式/07过滤器模式.md","ref":"设计模式/07过滤器模式.md","articles":[]},"previous":{"title":"05适配器模式","level":"1.2.6","depth":2,"path":"设计模式/05适配器模式.md","ref":"设计模式/05适配器模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/06桥接模式.md","mtime":"2021-06-01T13:29:28.317Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-01T13:31:06.774Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
