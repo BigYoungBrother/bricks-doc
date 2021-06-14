@@ -566,14 +566,208 @@
 						
 						<ul>
 <li><a href="#&#x7EC4;&#x5408;&#x6A21;&#x5F0F;">&#x7EC4;&#x5408;&#x6A21;&#x5F0F;</a><ul>
-<li><a href="#"></a></li>
+<li><a href="#1-&#x4F18;&#x7F3A;&#x70B9;">1. &#x4F18;&#x7F3A;&#x70B9;</a></li>
+<li><a href="#2-&#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x9002;&#x7528;&#x573A;&#x666F;">2. &#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x9002;&#x7528;&#x573A;&#x666F;</a></li>
+<li><a href="#3-java&#x5B9E;&#x4F8B;">3. Java&#x5B9E;&#x4F8B;</a></li>
 </ul>
 </li>
 </ul>
 <h1 id="&#x7EC4;&#x5408;&#x6A21;&#x5F0F;">&#x7EC4;&#x5408;&#x6A21;&#x5F0F;</h1>
-<h2 id=""> </h2>
+<p>&#x7EC4;&#x5408;&#x6A21;&#x5F0F;(Composite Pattern)&#x53C8;&#x88AB;&#x79F0;&#x4E3A;&#x90E8;&#x5206;&#x6574;&#x4F53;&#x6A21;&#x5F0F;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x90E8;&#x5206;&#x548C;&#x6574;&#x4F53;&#x64CD;&#x4F5C;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x3002;&#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x5E38;&#x6839;&#x636E;&#x6811;&#x5F62;&#x7ED3;&#x6784;&#x6765;&#x8868;&#x793A;&#x90E8;&#x5206;&#x548C;&#x6574;&#x4F53;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4F7F;&#x5F97;&#x7528;&#x6237;&#x5BF9;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#x548C;&#x7EC4;&#x5408;&#x5BF9;&#x8C61;&#x7684;&#x64CD;&#x4F5C;&#x5177;&#x6709;&#x4E00;&#x81F4;&#x6027;&#x3002;&#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x901A;&#x8FC7;&#x7279;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7B80;&#x5316;&#x4E86;&#x90E8;&#x5206;&#x548C;&#x6574;&#x4F53;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4F7F;&#x5F97;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x50CF;&#x5904;&#x7406;&#x5355;&#x4E2A;&#x5143;&#x7D20;&#x4E00;&#x6837;&#x6765;&#x5904;&#x7406;&#x6574;&#x4F53;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x5173;&#x5FC3;&#x5355;&#x4E2A;&#x5143;&#x7D20;&#x548C;&#x6574;&#x4F53;&#x6570;&#x636E;&#x96C6;&#x4E4B;&#x95F4;&#x7684;&#x5185;&#x90E8;&#x590D;&#x6742;&#x7ED3;&#x6784;</p>
+<h2 id="1-&#x4F18;&#x7F3A;&#x70B9;">1. &#x4F18;&#x7F3A;&#x70B9;</h2>
+<p><strong>&#x4F18;&#x70B9;</strong></p>
+<ul>
+<li>&#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x4F7F;&#x5F97;&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x4E00;&#x81F4;&#x5730;&#x5904;&#x7406;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#x548C;&#x7EC4;&#x5408;&#x5BF9;&#x8C61;&#xFF0C;&#x65E0;&#x987B;&#x5173;&#x5FC3;&#x81EA;&#x5DF1;&#x5904;&#x7406;&#x7684;&#x662F;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD8;&#x662F;&#x7EC4;&#x5408;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x7B80;&#x5316;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#xFF1B;</li>
+<li>&#x66F4;&#x5BB9;&#x6613;&#x5728;&#x7EC4;&#x5408;&#x4F53;&#x5185;&#x52A0;&#x5165;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;&#x52A0;&#x5165;&#x4E86;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x800C;&#x66F4;&#x6539;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x6EE1;&#x8DB3;&#x201C;&#x5F00;&#x95ED;&#x539F;&#x5219;&#x201D;&#xFF1B;</li>
+</ul>
+<p><strong>&#x7F3A;&#x70B9;</strong></p>
+<ul>
+<li>&#x4F7F;&#x8BBE;&#x8BA1;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x62BD;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x4E1A;&#x52A1;&#x89C4;&#x5219;&#x5982;&#x679C;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x5219;&#x5B9E;&#x73B0;&#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x5177;&#x6709;&#x5F88;&#x5927;&#x6311;&#x6218;&#x6027;&#xFF0C;&#x800C;&#x4E14;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x4E0E;&#x53F6;&#x5B50;&#x5BF9;&#x8C61;&#x5B50;&#x7C7B;&#x90FD;&#x6709;&#x5173;&#x8054;</li>
+</ul>
+<h2 id="2-&#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x9002;&#x7528;&#x573A;&#x666F;">2. &#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x9002;&#x7528;&#x573A;&#x666F;</h2>
+<ul>
+<li>&#x9700;&#x8981;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6574;&#x4F53;&#x6216;&#x90E8;&#x5206;&#x5C42;&#x6B21;&#xFF0C;&#x5728;&#x5177;&#x6709;&#x6574;&#x4F53;&#x548C;&#x90E8;&#x5206;&#x7684;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x4E2D;&#xFF0C;&#x5E0C;&#x671B;&#x901A;&#x8FC7;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x5FFD;&#x7565;&#x6574;&#x4F53;&#x4E0E;&#x90E8;&#x5206;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x53EF;&#x4EE5;&#x4E00;&#x81F4;&#x5730;&#x5BF9;&#x5F85;&#x5B83;&#x4EEC;&#x3002;</li>
+<li>&#x8BA9;&#x5BA2;&#x6237;&#x80FD;&#x591F;&#x5FFD;&#x7565;&#x4E0D;&#x540C;&#x5BF9;&#x8C61;&#x5C42;&#x6B21;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x62BD;&#x8C61;&#x6784;&#x4EF6;&#x7F16;&#x7A0B;&#xFF0C;&#x65E0;&#x987B;&#x5173;&#x5FC3;&#x5BF9;&#x8C61;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x7684;&#x7EC6;&#x8282;&#x3002;</li>
+</ul>
+<h2 id="3-java&#x5B9E;&#x4F8B;">3. Java&#x5B9E;&#x4F8B;</h2>
+<p><a href="images/CompositePattern.png" data-lightbox="efd58f9f-7601-4557-98b3-c960adce8dc3" data-title=""><img src="images/CompositePattern.png" alt=""></a></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * File&#x62BD;&#x8C61;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 10:28
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">File</span> </span>{
+
+    String name;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">File</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    <span class="hljs-comment">/**
+     * &#x663E;&#x793A;&#x6587;&#x4EF6;&#x5C5E;&#x6027;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span></span>;
+
+}
+
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-comment">/**
+ * &#x8BE5;&#x7C7B;&#x5305;&#x542B;&#x5BF9;&#x6587;&#x4EF6;&#x7684;&#x589E;&#x52A0;&#x3001;&#x5220;&#x9664;&#x548C;&#x6D4F;&#x89C8;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 10:29
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Folder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">File</span> </span>{
+
+    <span class="hljs-keyword">private</span> List&lt;File&gt; files;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Folder</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">super</span>(name);
+        files = <span class="hljs-keyword">new</span> ArrayList&lt;File&gt;();
+    }
+
+    <span class="hljs-comment">/**
+     * &#x6D4F;&#x89C8;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;&#x6587;&#x4EF6;
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">for</span> (File file : files) {
+            file.display();
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * &#x5411;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;
+     *
+     * <span class="hljs-doctag">@param</span> file
+     * <span class="hljs-doctag">@return</span> void
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(File file)</span> </span>{
+        files.add(file);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x4ECE;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x5220;&#x9664;&#x6587;&#x4EF6;
+     *
+     * <span class="hljs-doctag">@param</span> file
+     * <span class="hljs-doctag">@return</span> void
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(File file)</span> </span>{
+        files.remove(file);
+    }
+
+}
+
+<span class="hljs-comment">/**
+ * &#x6587;&#x672C;&#x6587;&#x4EF6;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 10:32
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TextFile</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">File</span></span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TextFile</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">super</span>(name);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#xFF1A;&quot;</span> + <span class="hljs-keyword">super</span>.getName());
+    }
+}
+
+<span class="hljs-comment">/**
+ * &#x89C6;&#x9891;&#x6587;&#x4EF6;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 10:36
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VideoFile</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">File</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">VideoFile</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">super</span>(name);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x5F71;&#x50CF;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#xFF1A;&quot;</span> + <span class="hljs-keyword">super</span>.getName());
+    }
+
+}
+
+<span class="hljs-comment">/**
+ * &#x56FE;&#x50CF;&#x6587;&#x4EF6;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 10:35
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ImageFile</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">File</span></span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ImageFile</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">super</span>(name);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x56FE;&#x50CF;&#x6587;&#x4EF6;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#xFF1A;&quot;</span> + <span class="hljs-keyword">super</span>.getName());
+    }
+}
+
+
+<span class="hljs-comment">/**
+ * &#x7EC4;&#x5408;&#x6A21;&#x5F0F;&#x6D4B;&#x8BD5;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 10:37
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileClientTest</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">//&#x603B;&#x6587;&#x4EF6;&#x5939;</span>
+        Folder folder = <span class="hljs-keyword">new</span> Folder(<span class="hljs-string">&quot;&#x603B;&#x6587;&#x4EF6;&#x5939;&quot;</span>);
+        <span class="hljs-comment">//&#x5411;&#x603B;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x653E;&#x5165;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;a.txt&#x3001;b.jpg&#x3001;c&#x6587;&#x4EF6;&#x5939;</span>
+        TextFile aText = <span class="hljs-keyword">new</span> TextFile(<span class="hljs-string">&quot;a.txt&quot;</span>);
+        ImageFile bImage = <span class="hljs-keyword">new</span> ImageFile(<span class="hljs-string">&quot;b.jpg&quot;</span>);
+        Folder cFolder = <span class="hljs-keyword">new</span> Folder(<span class="hljs-string">&quot;C&#x6587;&#x4EF6;&#x5939;&quot;</span>);
+
+        folder.add(aText);
+        folder.add(bImage);
+        folder.add(cFolder);
+
+        <span class="hljs-comment">//&#x5411;C&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#xFF1A;c_1.txt&#x3001;c_1.rmvb&#x3001;c_1.jpg</span>
+        TextFile cText = <span class="hljs-keyword">new</span> TextFile(<span class="hljs-string">&quot;c_1.txt&quot;</span>);
+        ImageFile cImage = <span class="hljs-keyword">new</span> ImageFile(<span class="hljs-string">&quot;c_1.jpg&quot;</span>);
+        VideoFile cVideo = <span class="hljs-keyword">new</span> VideoFile(<span class="hljs-string">&quot;c_1.rmvb&quot;</span>);
+
+        cFolder.add(cText);
+        cFolder.add(cImage);
+        cFolder.add(cVideo);
+
+        <span class="hljs-comment">//&#x904D;&#x5386;&#x603B;&#x6587;&#x4EF6;&#x5939;</span>
+        folder.display();
+        <span class="hljs-comment">//&#x5C06;c_1.txt&#x5220;&#x9664;</span>
+        cFolder.remove(cText);
+        System.out.println(<span class="hljs-string">&quot;-----------------------&quot;</span>);
+        <span class="hljs-comment">// &#x518D;&#x904D;&#x5386;&#x603B;&#x6587;&#x4EF6;&#x5939;</span>
+        folder.display();
+    }
+}
+</code></pre>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2021-06-03 21:16:22
+2021-06-14 10:48:00
 </span></footer>
 						
 					</section>
@@ -616,7 +810,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"08组合模式","level":"1.2.9","depth":2,"next":{"title":"09装饰器模式","level":"1.2.10","depth":2,"path":"设计模式/09装饰器模式.md","ref":"设计模式/09装饰器模式.md","articles":[]},"previous":{"title":"07过滤器模式","level":"1.2.8","depth":2,"path":"设计模式/07过滤器模式.md","ref":"设计模式/07过滤器模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/08组合模式.md","mtime":"2021-06-03T13:16:22.071Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-14T01:36:12.679Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"08组合模式","level":"1.2.9","depth":2,"next":{"title":"09装饰器模式","level":"1.2.10","depth":2,"path":"设计模式/09装饰器模式.md","ref":"设计模式/09装饰器模式.md","articles":[]},"previous":{"title":"07过滤器模式","level":"1.2.8","depth":2,"path":"设计模式/07过滤器模式.md","ref":"设计模式/07过滤器模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/08组合模式.md","mtime":"2021-06-14T02:48:00.397Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-14T02:48:21.925Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
