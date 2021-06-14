@@ -564,8 +564,132 @@
     
 					<section class="normal markdown-section">
 						
-						<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2021-05-31 22:11:31
+						<h1 id="&#x4EE3;&#x7406;&#x6A21;&#x5F0F;">&#x4EE3;&#x7406;&#x6A21;&#x5F0F;</h1>
+<p>&#x4EE3;&#x7406;&#x6A21;&#x5F0F;(Proxy Pattern)&#x6307;&#x4E3A;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x901A;&#x8FC7;&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x8BBF;&#x95EE;&#x5E76;&#x63A7;&#x5236;&#x8BE5;&#x5BF9;&#x8C61;&#x884C;&#x4E3A;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x9002;&#x5408;&#x6216;&#x8005;&#x4E0D;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x8BE5;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x4E5F;&#x5C31;&#x662F; &#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x4E2D;&#x4ECB;&#x3002;</p>
+<h2 id="1-&#x4F18;&#x7F3A;&#x70B9;">1. &#x4F18;&#x7F3A;&#x70B9;</h2>
+<p><strong>&#x4F18;&#x70B9;</strong></p>
+<ul>
+<li>&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x8D77;&#x5230;&#x4E00;&#x4E2A;&#x4E2D;&#x4ECB;&#x4F5C;&#x7528;&#x548C;&#x4FDD;&#x62A4;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684;&#x4F5C;&#x7528;&#xFF1B;</li>
+<li>&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684;&#x529F;&#x80FD;&#xFF1B;</li>
+<li>&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#x80FD;&#x5C06;&#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x5206;&#x79BB;&#xFF0C;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x964D;&#x4F4E;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x8026;&#x5408;&#x5EA6;&#xFF1B;</li>
+</ul>
+<p><strong>&#x7F3A;&#x70B9;</strong></p>
+<ul>
+<li>&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x4F1A;&#x9020;&#x6210;&#x8BF7;&#x6C42;&#x5904;&#x7406;&#x901F;&#x5EA6;&#x53D8;&#x6162;&#xFF1B;</li>
+<li>&#x589E;&#x52A0;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF1B;</li>
+</ul>
+<h2 id="2-&#x9759;&#x6001;&#x4EE3;&#x7406;">2. &#x9759;&#x6001;&#x4EE3;&#x7406;</h2>
+<p><a href="images/StaticProxy.png" data-lightbox="53168651-80f3-4719-bc93-54208cb30317" data-title=""><img src="images/StaticProxy.png" alt=""></a></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * Subject
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 18:36
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Subject</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operate</span><span class="hljs-params">()</span></span>;
+}
+
+
+<span class="hljs-comment">/**
+ * RealSubject
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 18:37
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RealSubject</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Subject</span></span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operate</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;RealSubject&quot;</span>);
+    }
+}
+
+<span class="hljs-comment">/**
+ * &#x9759;&#x6001;&#x4EE3;&#x7406;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 18:38
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StaticProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Subject</span> </span>{
+    <span class="hljs-keyword">private</span> Subject subject = <span class="hljs-keyword">null</span>;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (subject == <span class="hljs-keyword">null</span>) {
+            subject = <span class="hljs-keyword">new</span> RealSubject();
+        }
+        System.out.print(<span class="hljs-string">&quot;I&apos;m Proxy, I&apos;m invoking...&quot;</span>);
+        <span class="hljs-keyword">this</span>.subject.operate();
+    }
+}
+
+<span class="hljs-comment">/**
+ * &#x9759;&#x6001;&#x4EE3;&#x7406;&#x6D4B;&#x8BD5;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 18:48
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StaticProxyTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Subject subject = <span class="hljs-keyword">new</span> StaticProxy();
+        subject.operate();
+    }
+}
+</code></pre>
+<h2 id="3-java&#x52A8;&#x6001;&#x4EE3;&#x7406;">3. Java&#x52A8;&#x6001;&#x4EE3;&#x7406;</h2>
+<p>&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x662F;&#x6307;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x52A8;&#x6001;&#x751F;&#x6210;&#x4EE3;&#x7406;&#x7C7B;&#xFF0C;&#x5373;&#xFF0C;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x5B57;&#x8282;&#x7801;&#x5C06;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x751F;&#x6210;&#x5E76;&#x8F7D;&#x5165;&#x5F53;&#x524D;&#x7684;ClassLoader</p>
+<p>&#x4E0E;&#x9759;&#x6001;&#x4EE3;&#x7406;&#x7C7B;&#x60F3;&#x6BD4;&#xFF0C;&#x52A8;&#x6001;&#x7C7B;&#x6709;&#x8BF8;&#x591A;&#x597D;&#x5904;&#xFF1A;</p>
+<ul>
+<li>&#x9996;&#x5148;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4E3A;&#x771F;&#x5B9E;&#x4E3B;&#x9898;(RealSubject)&#x5199;&#x4E00;&#x4E2A;&#x5F62;&#x5F0F;&#x4E0A;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x7684;&#x5C01;&#x88C5;&#x7C7B;&#xFF0C;&#x5047;&#x5982;&#x4E3B;&#x9898;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5F88;&#x591A;&#xFF0C;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x5199;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x4E5F;&#x662F;&#x975E;&#x5E38;&#x70E6;&#x4EBA;&#x7684;&#x4E8B;&#xFF0C;&#x5982;&#x679C;&#x63A5;&#x53E3;&#x6709;&#x53D8;&#x52A8;&#xFF0C;&#x5219;&#x771F;&#x5B9E;&#x4E3B;&#x9898;&#x548C;&#x4EE3;&#x7406;&#x7C7B;&#x90FD;&#x8981;&#x4FEE;&#x6539;&#xFF0C;&#x4E0D;&#x5229;&#x4E8E;&#x7CFB;&#x7EDF;&#x7EF4;&#x62A4;&#xFF1B;</li>
+<li>&#x5176;&#x6B21;&#xFF0C;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x751F;&#x6210;&#x65B9;&#x6CD5;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x6307;&#x5B9A;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x6267;&#x884C;&#x903B;&#x8F91;&#xFF0C;&#x4ECE;&#x800C;&#x5927;&#x5927;&#x63D0;&#x5347;&#x7CFB;&#x7EDF;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x3002;</li>
+</ul>
+<p><strong>JDK&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x4F8B;&#x5B50;</strong></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x52A8;&#x6001;&#x4EE3;&#x7406;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 18:54
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InvocationHandler</span> </span>{
+    Object obj = <span class="hljs-keyword">null</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">newProxyInstance</span><span class="hljs-params">(Object realObj)</span> </span>{
+        <span class="hljs-keyword">this</span>.obj = realObj;
+        Class&lt;?&gt; classType = realObj.getClass();
+        <span class="hljs-keyword">return</span> Proxy.newProxyInstance(classType.getClassLoader(), classType.getInterfaces(), <span class="hljs-keyword">this</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
+        System.out.print(<span class="hljs-string">&quot;I&apos;m Proxy, I&apos;m invoking...&quot;</span>);
+        method.invoke(obj, args);
+        System.out.println(<span class="hljs-string">&quot;invoke end!&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+}
+
+<span class="hljs-comment">/**
+ * &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x6D4B;&#x8BD5;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 18:56
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicProxyTest</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Subject subject = (Subject) <span class="hljs-keyword">new</span> DynamicProxy().newProxyInstance(<span class="hljs-keyword">new</span> RealSubject());
+        subject.operate();
+    }
+
+}
+
+<span class="hljs-comment">//&#x8F93;&#x51FA;&#x7ED3;&#x679C;</span>
+I<span class="hljs-string">&apos;m Proxy, I&apos;</span>m invoking...RealSubject
+invoke end!
+</code></pre>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2021-06-14 18:57:21
 </span></footer>
 						
 					</section>
@@ -608,7 +732,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"12代理模式","level":"1.2.13","depth":2,"next":{"title":"13责任链模式","level":"1.2.14","depth":2,"path":"设计模式/13责任链模式.md","ref":"设计模式/13责任链模式.md","articles":[]},"previous":{"title":"11享元模式","level":"1.2.12","depth":2,"path":"设计模式/11享元模式.md","ref":"设计模式/11享元模式.md","articles":[]},"dir":"neutral"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/12代理模式.md","mtime":"2021-05-31T14:11:31.123Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-14T09:54:56.178Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"12代理模式","level":"1.2.13","depth":2,"next":{"title":"13责任链模式","level":"1.2.14","depth":2,"path":"设计模式/13责任链模式.md","ref":"设计模式/13责任链模式.md","articles":[]},"previous":{"title":"11享元模式","level":"1.2.12","depth":2,"path":"设计模式/11享元模式.md","ref":"设计模式/11享元模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/12代理模式.md","mtime":"2021-06-14T10:57:21.226Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-14T10:57:33.556Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
