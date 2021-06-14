@@ -564,8 +564,161 @@
     
 					<section class="normal markdown-section">
 						
-						<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2021-05-31 22:11:20
+						<ul>
+<li><a href="#&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;">&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;</a><ul>
+<li><a href="#1-&#x4F18;&#x7F3A;&#x70B9;">1. &#x4F18;&#x7F3A;&#x70B9;</a></li>
+<li><a href="#2-java&#x5B9E;&#x4F8B;">2. Java&#x5B9E;&#x4F8B;</a></li>
+<li><a href="#3-jdk&#x4E2D;&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;">3. JDK&#x4E2D;&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;">&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;</h1>
+<p>&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;(Decorator Pattern)&#x6307;&#x5728;&#x65E0;&#x987B;&#x6539;&#x53D8;&#x539F;&#x6709;&#x7C7B;&#x53CA;&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x52A8;&#x6001;&#x6269;&#x5C55;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x529F;&#x80FD;&#x3002;&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;&#x901A;&#x8FC7;&#x88C5;&#x9970;&#x8005;&#x6765;&#x5305;&#x88F9;&#x771F;&#x5B9E;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x52A8;&#x6001;&#x5730;&#x5411;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x6216;&#x8005;&#x64A4;&#x9500;&#x529F;&#x80FD;&#x3002;</p>
+<h2 id="1-&#x4F18;&#x7F3A;&#x70B9;">1. &#x4F18;&#x7F3A;&#x70B9;</h2>
+<p><strong>&#x4F18;&#x70B9;</strong></p>
+<ul>
+<li>&#x91C7;&#x7528;&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x6269;&#x5C55;&#x5BF9;&#x8C61;&#x7684;&#x529F;&#x80FD;&#x6BD4;&#x91C7;&#x7528;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x8BBE;&#x8BA1;&#x51FA;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x5177;&#x4F53;&#x88C5;&#x9970;&#x7C7B;&#xFF0C;&#x521B;&#x9020;&#x51FA;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x884C;&#x4E3A;&#x7684;&#x7EC4;&#x5408;&#x3002;</li>
+</ul>
+<p><strong>&#x7F3A;&#x70B9;</strong></p>
+<ul>
+<li>&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x589E;&#x52A0;&#x4E86;&#x8BB8;&#x591A;&#x5B50;&#x7C7B;&#xFF0C;&#x5982;&#x679C;&#x8FC7;&#x5EA6;&#x4F7F;&#x7528;&#x4F1A;&#x4F7F;&#x7A0B;&#x5E8F;&#x53D8;&#x5F97;&#x5F88;&#x590D;&#x6742;&#x3002;</li>
+</ul>
+<h2 id="2-java&#x5B9E;&#x4F8B;">2. Java&#x5B9E;&#x4F8B;</h2>
+<p><a href="images/DecoratorPattern.png" data-lightbox="91cbcb3d-9608-4eab-a28d-e0009ef0bdfd" data-title=""><img src="images/DecoratorPattern.png" alt=""></a></p>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+ * Apple
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 11:18
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Apple</span> </span>{
+
+    <span class="hljs-comment">/**
+     * &#x63CF;&#x8FF0;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">description</span><span class="hljs-params">()</span></span>;
+
+}
+
+<span class="hljs-comment">/**
+ * &#x666E;&#x901A;&#x82F9;&#x679C;&#x5B9E;&#x73B0;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 11:19
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteApple</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Apple</span></span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">description</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x666E;&#x901A;&#x7684;&#x82F9;&#x679C;&quot;</span>);
+    }
+}
+
+<span class="hljs-comment">/**
+ * Apple&#x88C5;&#x9970;&#x5668;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 11:20
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppleDecorator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Apple</span></span>{
+
+    <span class="hljs-keyword">private</span> Apple apple;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AppleDecorator</span><span class="hljs-params">(Apple apple)</span> </span>{
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-keyword">this</span>.apple = apple;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">description</span><span class="hljs-params">()</span> </span>{
+        apple.description();
+    }
+}
+
+
+<span class="hljs-comment">/**
+ * Apple&#x88C5;&#x9970;&#x5668; A
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 11:24
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppleDecoratorA</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppleDecorator</span></span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AppleDecoratorA</span><span class="hljs-params">(Apple apple)</span> </span>{
+        <span class="hljs-keyword">super</span>(apple);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">description</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x7EA2;&#x8272;&#x82F9;&#x679C;A&quot;</span>);
+        <span class="hljs-keyword">super</span>.description();
+    }
+}
+
+<span class="hljs-comment">/**
+ * Apple&#x88C5;&#x9970;&#x5668; B
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 11:25
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppleDecoratorB</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppleDecorator</span></span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AppleDecoratorB</span><span class="hljs-params">(Apple apple)</span> </span>{
+        <span class="hljs-keyword">super</span>(apple);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">description</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x7EFF;&#x8272;&#x82F9;&#x679C;B&quot;</span>);
+        <span class="hljs-keyword">super</span>.description();
+    }
+}
+
+<span class="hljs-comment">/**
+ * &#x88C5;&#x9970;&#x5668;&#x6D4B;&#x8BD5;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 11:33
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DecoratorTest</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ConcreteApple concreteApple = <span class="hljs-keyword">new</span> ConcreteApple();
+        concreteApple.description();
+        System.out.println(<span class="hljs-string">&quot;#####&quot;</span>);
+        AppleDecoratorA appleDecoratorA = <span class="hljs-keyword">new</span> AppleDecoratorA(concreteApple);
+        appleDecoratorA.description();
+        System.out.println(<span class="hljs-string">&quot;#####&quot;</span>);
+        AppleDecoratorB appleDecoratorB = <span class="hljs-keyword">new</span> AppleDecoratorB(concreteApple);
+        appleDecoratorB.description();
+    }
+}
+</code></pre>
+<h2 id="3-jdk&#x4E2D;&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;">3. JDK&#x4E2D;&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;</h2>
+<p>&#x88C5;&#x9970;&#x6A21;&#x5F0F;&#x5728; <a href="http://c.biancheng.net/java/" target="_blank">Java</a> &#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x6700;&#x8457;&#x540D;&#x7684;&#x5E94;&#x7528;&#x83AB;&#x8FC7;&#x4E8E; Java I/O &#x6807;&#x51C6;&#x5E93;&#x7684;&#x8BBE;&#x8BA1;&#x4E86;&#x3002;&#x4F8B;&#x5982;&#xFF0C;<code>InputStream</code>&#x7684;&#x5B50;&#x7C7B; <code>FilterInputStream</code>&#xFF0C;<code>OutputStream</code> &#x7684;&#x5B50;&#x7C7B; <code>FilterOutputStream</code>&#xFF0C;<code>Reader</code> &#x7684;&#x5B50;&#x7C7B;<code>BufferedReader</code> &#x4EE5;&#x53CA; <code>FilterReader</code>&#xFF0C;&#x8FD8;&#x6709; Writer &#x7684;&#x5B50;&#x7C7B; <code>BufferedWriter</code>&#x3001;<code>FilterWriter</code> &#x4EE5;&#x53CA;<code>PrintWriter</code>&#x7B49;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x62BD;&#x8C61;&#x88C5;&#x9970;&#x7C7B;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x662F;&#x4E3A;<code>FileReader</code> &#x589E;&#x52A0;&#x7F13;&#x51B2;&#x533A;&#x800C;&#x91C7;&#x7528;&#x7684;&#x88C5;&#x9970;&#x7C7B; <code>BufferedReader</code> &#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.io.*;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JdkStreamTest</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;test1.txt&quot;</span>);
+        FileReader fileReader = <span class="hljs-keyword">new</span> FileReader(file);
+        BufferedReader bufferedReader = <span class="hljs-keyword">new</span> BufferedReader(fileReader);
+        <span class="hljs-comment">//&#x53EA;&#x80FD;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;character</span>
+        System.out.println(fileReader.read());
+        <span class="hljs-comment">//&#x53EA;&#x80FD;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;character</span>
+        System.out.println(bufferedReader.read());
+
+        <span class="hljs-comment">//&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x4E00;&#x884C;</span>
+        System.out.println(bufferedReader.readLine());
+
+    }
+}
+</code></pre>
+<p>Java &#x7684;IO&#x7C7B;&#x5373;&#x662F;&#x4F7F;&#x7528;&#x7684;&#x88C5;&#x9970;&#x5668;&#x6A21;&#x5F0F;&#xFF0C;<code>BufferedReader</code>&#x5728;<code>FileReader</code>&#x4E0A;&#x589E;&#x52A0;&#x4E86;&#x65B0;&#x7684;&#x529F;&#x80FD;<code>readLine()</code></p>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2021-06-14 11:35:46
 </span></footer>
 						
 					</section>
@@ -608,7 +761,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"09装饰器模式","level":"1.2.10","depth":2,"next":{"title":"10外观模式","level":"1.2.11","depth":2,"path":"设计模式/10外观模式.md","ref":"设计模式/10外观模式.md","articles":[]},"previous":{"title":"08组合模式","level":"1.2.9","depth":2,"path":"设计模式/08组合模式.md","ref":"设计模式/08组合模式.md","articles":[]},"dir":"neutral"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/09装饰器模式.md","mtime":"2021-05-31T14:11:20.197Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-14T02:48:21.925Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"09装饰器模式","level":"1.2.10","depth":2,"next":{"title":"10外观模式","level":"1.2.11","depth":2,"path":"设计模式/10外观模式.md","ref":"设计模式/10外观模式.md","articles":[]},"previous":{"title":"08组合模式","level":"1.2.9","depth":2,"path":"设计模式/08组合模式.md","ref":"设计模式/08组合模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/09装饰器模式.md","mtime":"2021-06-14T03:35:46.819Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-14T03:36:30.663Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
