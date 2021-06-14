@@ -564,8 +564,92 @@
     
 					<section class="normal markdown-section">
 						
-						<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2021-05-31 22:11:27
+						<ul>
+<li><a href="#&#x4EAB;&#x5143;&#x6A21;&#x5F0F;">&#x4EAB;&#x5143;&#x6A21;&#x5F0F;</a><ul>
+<li><a href="#1-java&#x5B9E;&#x4F8B;">1. Java&#x5B9E;&#x4F8B;</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="&#x4EAB;&#x5143;&#x6A21;&#x5F0F;">&#x4EAB;&#x5143;&#x6A21;&#x5F0F;</h1>
+<p>&#x4EAB;&#x5143;&#x6A21;&#x5F0F;(Flyweight Pattern)&#x4E3B;&#x8981;&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x7684;&#x590D;&#x7528;&#x6765;&#x51CF;&#x5C11;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x7684;&#x6B21;&#x6570;&#x548C;&#x6570;&#x91CF;&#xFF0C;&#x4EE5;&#x51CF;&#x5C11;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x7684;&#x4F7F;&#x7528;&#x548C;&#x964D;&#x4F4E;&#x7CFB;&#x7EDF;&#x7684;&#x8D1F;&#x8F7D;&#x3002;&#x5728;&#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x65F6;&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x9996;&#x5148;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x67E5;&#x627E;&#x5E76;&#x5C1D;&#x8BD5;&#x91CD;&#x7528;&#x73B0;&#x6709;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x672A;&#x627E;&#x5230;&#x5339;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x65B0;&#x961F;&#x5F62;&#x5E76;&#x5C06;&#x5176;&#x7F13;&#x5B58;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x4EE5;&#x4FBF;&#x4E0B;&#x6B21;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x8FD0;&#x7528;&#x5171;&#x4EAB;&#x6280;&#x672F;&#x6765;&#x6709;&#x6548;&#x5730;&#x652F;&#x6301;&#x5927;&#x91CF;&#x7EC6;&#x7C92;&#x5EA6;&#x5BF9;&#x8C61;&#x7684;&#x590D;&#x7528;&#x3002;&#x5B83;&#x901A;&#x8FC7;&#x5171;&#x4EAB;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x5927;&#x5E45;&#x5EA6;&#x51CF;&#x5C11;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x6570;&#x91CF;&#x3001;&#x907F;&#x514D;&#x5927;&#x91CF;&#x76F8;&#x4F3C;&#x7C7B;&#x7684;&#x5F00;&#x9500;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x7684;&#x5229;&#x7528;&#x7387;&#x3002;</p>
+<p>&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x7684;&#x4E3B;&#x8981;&#x4F18;&#x70B9;&#x662F;&#xFF1A;&#x76F8;&#x540C;&#x5BF9;&#x8C61;&#x53EA;&#x8981;&#x4FDD;&#x5B58;&#x4E00;&#x4EFD;&#xFF0C;&#x8FD9;&#x964D;&#x4F4E;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x4ECE;&#x800C;&#x964D;&#x4F4E;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;&#x7EC6;&#x7C92;&#x5EA6;&#x5BF9;&#x8C61;&#x7ED9;&#x5185;&#x5B58;&#x5E26;&#x6765;&#x7684;&#x538B;&#x529B;&#x3002;</p>
+<h2 id="1-java&#x5B9E;&#x4F8B;">1. Java&#x5B9E;&#x4F8B;</h2>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x56FE;&#x5F62;&#x63A5;&#x53E3;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 17:47
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span> </span>{
+    <span class="hljs-comment">/**
+     * &#x56FE;&#x50CF;&#x65B9;&#x6CD5;
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span></span>;
+}
+
+
+<span class="hljs-comment">/**
+ * &#x56FE;&#x5F62;&#x5706;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 17:50
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span></span>{
+
+    <span class="hljs-keyword">private</span> String color;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> x;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> y;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> radius;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Circle</span><span class="hljs-params">(String color)</span></span>{
+        <span class="hljs-keyword">this</span>.color = color;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setX</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>{
+        <span class="hljs-keyword">this</span>.x = x;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setY</span><span class="hljs-params">(<span class="hljs-keyword">int</span> y)</span> </span>{
+        <span class="hljs-keyword">this</span>.y = y;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRadius</span><span class="hljs-params">(<span class="hljs-keyword">int</span> radius)</span> </span>{
+        <span class="hljs-keyword">this</span>.radius = radius;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Circle: Draw() [Color : &quot;</span> + color
+                +<span class="hljs-string">&quot;, x : &quot;</span> + x +<span class="hljs-string">&quot;, y :&quot;</span> + y +<span class="hljs-string">&quot;, radius :&quot;</span> + radius);
+    }
+}
+
+<span class="hljs-keyword">import</span> java.util.HashMap;
+
+<span class="hljs-comment">/**
+ * &#x56FE;&#x5F62;&#x5DE5;&#x5382;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-14 17:52
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShapeFactory</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> HashMap&lt;String, Shape&gt; CIRCLE_MAP = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Shape <span class="hljs-title">getCircle</span><span class="hljs-params">(String color)</span> </span>{
+        Circle circle = (Circle) CIRCLE_MAP.get(color);
+        <span class="hljs-keyword">if</span>(circle == <span class="hljs-keyword">null</span>) {
+            circle = <span class="hljs-keyword">new</span> Circle(color);
+            CIRCLE_MAP.put(color, circle);
+            System.out.println(<span class="hljs-string">&quot;Creating circle of color : &quot;</span> + color);
+        }
+        <span class="hljs-keyword">return</span> circle;
+    }
+}
+</code></pre>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2021-06-14 17:54:45
 </span></footer>
 						
 					</section>
@@ -608,7 +692,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"11享元模式","level":"1.2.12","depth":2,"next":{"title":"12代理模式","level":"1.2.13","depth":2,"path":"设计模式/12代理模式.md","ref":"设计模式/12代理模式.md","articles":[]},"previous":{"title":"10外观模式","level":"1.2.11","depth":2,"path":"设计模式/10外观模式.md","ref":"设计模式/10外观模式.md","articles":[]},"dir":"neutral"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/11享元模式.md","mtime":"2021-05-31T14:11:27.880Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-14T08:35:37.091Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"11享元模式","level":"1.2.12","depth":2,"next":{"title":"12代理模式","level":"1.2.13","depth":2,"path":"设计模式/12代理模式.md","ref":"设计模式/12代理模式.md","articles":[]},"previous":{"title":"10外观模式","level":"1.2.11","depth":2,"path":"设计模式/10外观模式.md","ref":"设计模式/10外观模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/11享元模式.md","mtime":"2021-06-14T09:54:45.272Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-14T09:54:56.178Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
