@@ -564,8 +564,107 @@
     
 					<section class="normal markdown-section">
 						
-						<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2021-05-31 22:11:52
+						<ul>
+<li><a href="#&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;">&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;</a><ul>
+<li><a href="#1-&#x4F18;&#x7F3A;&#x70B9;">1. &#x4F18;&#x7F3A;&#x70B9;</a></li>
+<li><a href="#2-java&#x5B9E;&#x4F8B;">2. Java&#x5B9E;&#x4F8B;</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;">&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;</h1>
+<p>&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#xFF08;Mediator Pattern&#xFF09;&#x662F;&#x7528;&#x6765;&#x964D;&#x4F4E;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x548C;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x590D;&#x6742;&#x6027;&#x3002;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x4E2D;&#x4ECB;&#x7C7B;&#xFF0C;&#x8BE5;&#x7C7B;&#x901A;&#x5E38;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#xFF0C;&#x5E76;&#x652F;&#x6301;&#x677E;&#x8026;&#x5408;&#xFF0C;&#x4F7F;&#x4EE3;&#x7801;&#x6613;&#x4E8E;&#x7EF4;&#x62A4;&#x3002;</p>
+<p><strong>&#x610F;&#x56FE;&#xFF1A;</strong>&#x7528;&#x4E00;&#x4E2A;&#x4E2D;&#x4ECB;&#x5BF9;&#x8C61;&#x6765;&#x5C01;&#x88C5;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x5BF9;&#x8C61;&#x4EA4;&#x4E92;&#xFF0C;&#x4E2D;&#x4ECB;&#x8005;&#x4F7F;&#x5404;&#x5BF9;&#x8C61;&#x4E0D;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x5730;&#x76F8;&#x4E92;&#x5F15;&#x7528;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x5176;&#x8026;&#x5408;&#x677E;&#x6563;&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x5730;&#x6539;&#x53D8;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x3002;</p>
+<p><strong>&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#xFF1A;</strong>&#x5BF9;&#x8C61;&#x4E0E;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x5927;&#x91CF;&#x7684;&#x5173;&#x8054;&#x5173;&#x7CFB;&#xFF0C;&#x8FD9;&#x6837;&#x52BF;&#x5FC5;&#x4F1A;&#x5BFC;&#x81F4;&#x7CFB;&#x7EDF;&#x7684;&#x7ED3;&#x6784;&#x53D8;&#x5F97;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x540C;&#x65F6;&#x82E5;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x9700;&#x8981;&#x8DDF;&#x8E2A;&#x4E0E;&#x4E4B;&#x76F8;&#x5173;&#x8054;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x540C;&#x65F6;&#x505A;&#x51FA;&#x76F8;&#x5E94;&#x7684;&#x5904;&#x7406;&#x3002;</p>
+<p><strong>&#x4F55;&#x65F6;&#x4F7F;&#x7528;&#xFF1A;</strong>&#x591A;&#x4E2A;&#x7C7B;&#x76F8;&#x4E92;&#x8026;&#x5408;&#xFF0C;&#x5F62;&#x6210;&#x4E86;&#x7F51;&#x72B6;&#x7ED3;&#x6784;&#x3002;</p>
+<p><strong>&#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#xFF1A;</strong> </p>
+<ul>
+<li>&#x4E2D;&#x56FD;&#x52A0;&#x5165; WTO &#x4E4B;&#x524D;&#x662F;&#x5404;&#x4E2A;&#x56FD;&#x5BB6;&#x76F8;&#x4E92;&#x8D38;&#x6613;&#xFF0C;&#x7ED3;&#x6784;&#x590D;&#x6742;&#xFF0C;&#x73B0;&#x5728;&#x662F;&#x5404;&#x4E2A;&#x56FD;&#x5BB6;&#x901A;&#x8FC7; WTO &#x6765;&#x4E92;&#x76F8;&#x8D38;&#x6613;</li>
+<li>&#x673A;&#x573A;&#x8C03;&#x5EA6;&#x7CFB;&#x7EDF;</li>
+<li>MVC &#x6846;&#x67B6;&#xFF0C;&#x5176;&#x4E2D;C&#xFF08;&#x63A7;&#x5236;&#x5668;&#xFF09;&#x5C31;&#x662F; M&#xFF08;&#x6A21;&#x578B;&#xFF09;&#x548C; V&#xFF08;&#x89C6;&#x56FE;&#xFF09;&#x7684;&#x4E2D;&#x4ECB;&#x8005;&#x3002;</li>
+</ul>
+<p><strong>&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF1A;</strong> </p>
+<ul>
+<li>&#x7CFB;&#x7EDF;&#x4E2D;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x5F15;&#x7528;&#x5173;&#x7CFB;&#xFF0C;&#x5BFC;&#x81F4;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x7ED3;&#x6784;&#x6DF7;&#x4E71;&#x800C;&#x4E14;&#x96BE;&#x4EE5;&#x590D;&#x7528;&#x8BE5;&#x5BF9;&#x8C61;</li>
+<li>&#x60F3;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x7C7B;&#x6765;&#x5C01;&#x88C5;&#x591A;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x800C;&#x53C8;&#x4E0D;&#x60F3;&#x751F;&#x6210;&#x592A;&#x591A;&#x7684;&#x5B50;&#x7C7B;&#x3002;</li>
+</ul>
+<h2 id="1-&#x4F18;&#x7F3A;&#x70B9;">1. &#x4F18;&#x7F3A;&#x70B9;</h2>
+<p><strong>&#x4F18;&#x70B9;&#xFF1A;</strong> </p>
+<ul>
+<li>&#x964D;&#x4F4E;&#x4E86;&#x7C7B;&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x5C06;&#x4E00;&#x5BF9;&#x591A;&#x8F6C;&#x5316;&#x6210;&#x4E86;&#x4E00;&#x5BF9;&#x4E00;</li>
+<li>&#x5404;&#x4E2A;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x89E3;&#x8026;</li>
+<li>&#x7B26;&#x5408;&#x8FEA;&#x7C73;&#x7279;&#x539F;&#x5219;&#x3002;</li>
+</ul>
+<p><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong></p>
+<ul>
+<li>&#x4E2D;&#x4ECB;&#x8005;&#x4F1A;&#x5E9E;&#x5927;&#xFF0C;&#x53D8;&#x5F97;&#x590D;&#x6742;&#x96BE;&#x4EE5;&#x7EF4;&#x62A4;&#x3002;</li>
+</ul>
+<h2 id="2-java&#x5B9E;&#x4F8B;">2. Java&#x5B9E;&#x4F8B;</h2>
+<p>&#x901A;&#x8FC7;&#x804A;&#x5929;&#x5BA4;&#x5B9E;&#x4F8B;&#x6765;&#x6F14;&#x793A;&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#x3002;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5411;&#x804A;&#x5929;&#x5BA4;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x804A;&#x5929;&#x5BA4;&#x5411;&#x6240;&#x6709;&#x7684;&#x7528;&#x6237;&#x663E;&#x793A;&#x6D88;&#x606F;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x7C7B; <code>ChatRoom</code> &#x548C; <code>User</code>&#x3002;<code>User</code>&#x5BF9;&#x8C61;&#x4F7F;&#x7528;<code>ChatRoom</code>&#x65B9;&#x6CD5;&#x6765;&#x5206;&#x4EAB;&#x4ED6;&#x4EEC;&#x7684;&#x6D88;&#x606F;&#x3002;</p>
+<p>&#x6F14;&#x793A;&#x7C7B;<code>MediatorPatternDemo</code>&#xFF0C;&#x4F7F;&#x7528; <code>User</code> &#x5BF9;&#x8C61;&#x6765;&#x663E;&#x793A;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x3002;</p>
+<p><a href="images/&#x4E2D;&#x4ECB;&#x8005;.jpg" data-lightbox="59190b09-7942-4f37-9b28-ad511d054adb" data-title=""><img src="images/&#x4E2D;&#x4ECB;&#x8005;.jpg" alt=""></a></p>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x804A;&#x5929;&#x5BA4;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-19 20:22
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ChatRoom</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showMessage</span><span class="hljs-params">(User user, String message)</span></span>{
+        System.out.println(<span class="hljs-keyword">new</span> Date().toString()
+                + <span class="hljs-string">&quot; [&quot;</span> + user.getName() +<span class="hljs-string">&quot;] : &quot;</span> + message);
+    }
+}
+
+<span class="hljs-comment">/**
+ * &#x7528;&#x6237;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-19 20:23
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>{
+    <span class="hljs-keyword">private</span> String name;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">User</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sendMessage</span><span class="hljs-params">(String message)</span> </span>{
+        ChatRoom.showMessage(<span class="hljs-keyword">this</span>, message);
+    }
+}
+
+
+<span class="hljs-comment">/**
+ * &#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#x6D4B;&#x8BD5;&#x7C7B;
+ *
+ * <span class="hljs-doctag">@author</span> Young
+ * <span class="hljs-doctag">@Date</span> 2021-06-19 20:23
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MediatorPatternDemo</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        User robert = <span class="hljs-keyword">new</span> User(<span class="hljs-string">&quot;Robert&quot;</span>);
+        User john = <span class="hljs-keyword">new</span> User(<span class="hljs-string">&quot;John&quot;</span>);
+
+        robert.sendMessage(<span class="hljs-string">&quot;Hi! John!&quot;</span>);
+        john.sendMessage(<span class="hljs-string">&quot;Hello! Robert!&quot;</span>);
+    }
+}
+
+
+<span class="hljs-comment">//&#x8F93;&#x51FA;</span>
+Thu Jan <span class="hljs-number">31</span> <span class="hljs-number">16</span>:<span class="hljs-number">05</span>:<span class="hljs-number">46</span> IST <span class="hljs-number">2013</span> [Robert] : Hi! John!
+Thu Jan <span class="hljs-number">31</span> <span class="hljs-number">16</span>:<span class="hljs-number">05</span>:<span class="hljs-number">46</span> IST <span class="hljs-number">2013</span> [John] : Hello! Robert!
+</code></pre>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2021-06-19 20:25:05
 </span></footer>
 						
 					</section>
@@ -608,7 +707,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"17中介模式","level":"1.2.18","depth":2,"next":{"title":"18备忘录模式","level":"1.2.19","depth":2,"path":"设计模式/18备忘录模式.md","ref":"设计模式/18备忘录模式.md","articles":[]},"previous":{"title":"16迭代器模式","level":"1.2.17","depth":2,"path":"设计模式/16迭代器模式.md","ref":"设计模式/16迭代器模式.md","articles":[]},"dir":"neutral"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/17中介模式.md","mtime":"2021-05-31T14:11:52.840Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-19T07:40:05.064Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"17中介模式","level":"1.2.18","depth":2,"next":{"title":"18备忘录模式","level":"1.2.19","depth":2,"path":"设计模式/18备忘录模式.md","ref":"设计模式/18备忘录模式.md","articles":[]},"previous":{"title":"16迭代器模式","level":"1.2.17","depth":2,"path":"设计模式/16迭代器模式.md","ref":"设计模式/16迭代器模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","lightbox","expandable-chapters-small"],"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"weibo":false,"all":["facebook","google","twitter","weibo","instapaper"],"google":false,"twitter":true,"vk":false,"instapaper":false,"facebook":true},"theme-default":{"styles":{"website":"styles/website.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","pdf":"styles/pdf.css","epub":"styles/epub.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"设计模式/17中介模式.md","mtime":"2021-06-19T12:25:05.993Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-19T12:25:54.550Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
