@@ -14,7 +14,7 @@
  1. markdown编辑器，推荐Typora和vs code + markdown all in one插件
  2. gitbook
 
-使用到的代码: [https://gitee.com/gaoyang8320/java-notes](https://gitee.com/gaoyang8320/java-notes)
+使用到的代码: [java-notes](https://github.com/BigYoungBrother/java-notes)
 
 gitbook使用方法：
 
