@@ -1,10 +1,10 @@
 # 前言
  
-自己所学习的一些开发知识，希望都能够记录下来，在世界留下点痕迹...
+自己所学习的一些开发知识，希望都能够记录下来，在搬砖界留下点痕迹...
 
 使用Markdown语法编写，可直接在gitee中查看，也可以下载下来
 
-[gitee地址](https://gitee.com/gaoyang8320/bricks.git)
+[github地址](https://github.com/BigYoungBrother/bricks-doc)
 
 [gitpage地址](https://gaoyang8320.gitee.io/bricks)
 
