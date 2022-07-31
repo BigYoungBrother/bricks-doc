@@ -30,6 +30,8 @@
   * [spring-bean生命周期](spring/spring-bean生命周期.md)
 * [分布式唯一ID](唯一ID/unique_id.md)
 * [IO模型](IO模型/IO模型.md)
-* [JVM](jvm/JVM.md)
+* [JVM](jvm/readme.md)
+  * [JVM运行时数据区](jvm/JVM运行时数据区.md)
+  * [JVM参数](jvm/JVM参数.md)
 * [IDEA常用操作](工具使用/idea常用操作.md)
 
