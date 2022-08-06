@@ -153,8 +153,6 @@ JDK1.4 中新加入的 NIO(New Input/Output) 类，引入了一种基于通道�
 
 本机直接内存的分配不会受到 Java 堆的限制，但是，既然是内存就会受到本机总内存大小以及处理器寻址空间的限制。
 
-## Java堆对象创建
-
 ## 参考
 
 - [JavaGuide](https://javaguide.cn/)
