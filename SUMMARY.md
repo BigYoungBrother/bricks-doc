@@ -32,6 +32,11 @@
 * [IO模型](IO模型/IO模型.md)
 * [JVM](jvm/readme.md)
   * [JVM运行时数据区](jvm/JVM运行时数据区.md)
+  * [类文件结构](jvm/类文件结构.md)
+  * [类加载](jvm/类加载.md)
+  * [JVM对象](jvm/JVM对象.md)
+  * [JVM垃圾回收](jvm/JVM_GC.md)
   * [JVM参数](jvm/JVM参数.md)
+  * [JVM分析工具](jvm/JVM分析工具.md)
 * [IDEA常用操作](工具使用/idea常用操作.md)
 
