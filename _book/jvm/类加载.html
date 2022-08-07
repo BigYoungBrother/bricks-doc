@@ -1,828 +1,810 @@
+
 <!DOCTYPE HTML>
-<html lang="">
-<head>
-    <meta charset="UTF-8">
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>类加载 · 每日搬砖</title>
-    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-    <meta content="" name="description">
-    <meta content="GitBook 3.2.3" name="generator">
-    <meta content="Young" name="author">
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>类加载 · 每日搬砖</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Young">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
 
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+        
 
-    <link href="../gitbook/style.css" rel="stylesheet">
+    
 
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-    <link href="../gitbook/gitbook-plugin-search-pro/search.css" rel="stylesheet">
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
+    
+    <link rel="next" href="JVM对象.html" />
+    
+    
+    <link rel="prev" href="类文件结构.html" />
+    
 
-    <link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet">
-
-
-    <link href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css" rel="stylesheet">
-
-
-    <link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet">
-
-
-    <link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet">
-
-
-    <link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet">
-
-
-    <link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet">
-
-
-    <link href="../gitbook/gitbook-plugin-theme-fexa/fexa.css" rel="stylesheet">
-
-
-    <meta content="true" name="HandheldFriendly"/>
-    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed"
-          sizes="152x152">
-    <link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
-
-    <link href="JVM对象.html" rel="next"/>
-
-
-    <link href="类文件结构.html" rel="prev"/>
-
-
-</head>
-<body>
-
+    </head>
+    <body>
+        
 <div class="book">
-    <div class="header-inner">
-        <!-- LOGO -->
-        <div class="logo"></div>
-        <span class="title"></span>
-
-        <!-- Search -->
-
-        <div id="book-search-input" role="search">
-            <input placeholder="Type to search" type="text"/>
-        </div>
-
-
-        <!-- Nav -->
-        <ul class="header-nav">
-
-        </ul>
-    </div>
-
-    <div class="book-summary">
-        <div class="book-summary-title">文档目录</div>
-
-
-        <nav role="navigation">
-
-
-            <ul class="summary">
-
-
-                <li>
-                    <a class="custom-link" href="https://gitee.com/gaoyang8320" target="_blank">码云主页</a>
-                </li>
-
-
-                <li>
-                    <a class="custom-link" href="https://gitee.com/gaoyang8320/java-notes" target="_blank">代码仓库</a>
-                </li>
-
-
-                <li class="divider"></li>
-
-
-                <li class="chapter " data-level="1.1" data-path="../">
-
-                    <a href="../">
-
-
-                        Introduction
-
-                    </a>
-
-
-                </li>
-
-                <li class="chapter " data-level="1.2" data-path="../设计模式/readme.html">
-
-                    <a href="../设计模式/readme.html">
-
-
-                        设计模式
-
-                    </a>
-
-
-                    <ul class="articles">
-
-
-                        <li class="chapter " data-level="1.2.1" data-path="../设计模式/00概述.html">
-
-                            <a href="../设计模式/00概述.html">
-
-
-                                00设计模式概述
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.2" data-path="../设计模式/01工厂模式.html">
-
-                            <a href="../设计模式/01工厂模式.html">
-
-
-                                01工厂模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.3" data-path="../设计模式/02单例模式.html">
-
-                            <a href="../设计模式/02单例模式.html">
-
-
-                                02单例模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.4" data-path="../设计模式/03建造者模式.html">
-
-                            <a href="../设计模式/03建造者模式.html">
-
-
-                                03建造者模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.5" data-path="../设计模式/04原型模式.html">
-
-                            <a href="../设计模式/04原型模式.html">
-
-
-                                04原型模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.6" data-path="../设计模式/05适配器模式.html">
-
-                            <a href="../设计模式/05适配器模式.html">
-
-
-                                05适配器模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.7" data-path="../设计模式/06桥接模式.html">
-
-                            <a href="../设计模式/06桥接模式.html">
-
-
-                                06桥接模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.8" data-path="../设计模式/07过滤器模式.html">
-
-                            <a href="../设计模式/07过滤器模式.html">
-
-
-                                07过滤器模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.9" data-path="../设计模式/08组合模式.html">
-
-                            <a href="../设计模式/08组合模式.html">
-
-
-                                08组合模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.10" data-path="../设计模式/09装饰器模式.html">
-
-                            <a href="../设计模式/09装饰器模式.html">
-
-
-                                09装饰器模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.11" data-path="../设计模式/10外观模式.html">
-
-                            <a href="../设计模式/10外观模式.html">
-
-
-                                10外观模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.12" data-path="../设计模式/11享元模式.html">
-
-                            <a href="../设计模式/11享元模式.html">
-
-
-                                11享元模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.13" data-path="../设计模式/12代理模式.html">
-
-                            <a href="../设计模式/12代理模式.html">
-
-
-                                12代理模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.14" data-path="../设计模式/13责任链模式.html">
-
-                            <a href="../设计模式/13责任链模式.html">
-
-
-                                13责任链模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.15" data-path="../设计模式/14命令模式.html">
-
-                            <a href="../设计模式/14命令模式.html">
-
-
-                                14命令模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.16" data-path="../设计模式/15解释器模式.html">
-
-                            <a href="../设计模式/15解释器模式.html">
-
-
-                                15解释器模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.17" data-path="../设计模式/16迭代器模式.html">
-
-                            <a href="../设计模式/16迭代器模式.html">
-
-
-                                16迭代器模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.18" data-path="../设计模式/17中介模式.html">
-
-                            <a href="../设计模式/17中介模式.html">
-
-
-                                17中介模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.19" data-path="../设计模式/18备忘录模式.html">
-
-                            <a href="../设计模式/18备忘录模式.html">
-
-
-                                18备忘录模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.20" data-path="../设计模式/19观察者模式.html">
-
-                            <a href="../设计模式/19观察者模式.html">
-
-
-                                19观察者模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.21" data-path="../设计模式/20状态模式.html">
-
-                            <a href="../设计模式/20状态模式.html">
-
-
-                                20状态模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.22" data-path="../设计模式/21策略模式.html">
-
-                            <a href="../设计模式/21策略模式.html">
-
-
-                                21策略模式
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.23" data-path="../设计模式/22模板方法.html">
-
-                            <a href="../设计模式/22模板方法.html">
-
-
-                                22模板方法
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.2.24" data-path="../设计模式/23访问者模式.html">
-
-                            <a href="../设计模式/23访问者模式.html">
-
-
-                                23访问者模式
-
-                            </a>
-
-
-                        </li>
-
-
-                    </ul>
-
-                </li>
-
-                <li class="chapter " data-level="1.3" data-path="../spring/readme.html">
-
-                    <a href="../spring/readme.html">
-
-
-                        spring
-
-                    </a>
-
-
-                    <ul class="articles">
-
-
-                        <li class="chapter " data-level="1.3.1" data-path="../spring/spring-bean生命周期.html">
-
-                            <a href="../spring/spring-bean生命周期.html">
-
-
-                                spring-bean生命周期
-
-                            </a>
-
-
-                        </li>
-
-
-                    </ul>
-
-                </li>
-
-                <li class="chapter " data-level="1.4" data-path="../唯一ID/unique_id.html">
-
-                    <a href="../唯一ID/unique_id.html">
-
-
-                        分布式唯一ID
-
-                    </a>
-
-
-                </li>
-
-                <li class="chapter " data-level="1.5" data-path="../IO模型/IO模型.html">
-
-                    <a href="../IO模型/IO模型.html">
-
-
-                        IO模型
-
-                    </a>
-
-
-                </li>
-
-                <li class="chapter " data-level="1.6" data-path="readme.html">
-
-                    <a href="readme.html">
-
-
-                        JVM
-
-                    </a>
-
-
-                    <ul class="articles">
-
-
-                        <li class="chapter " data-level="1.6.1" data-path="JVM运行时数据区.html">
-
-                            <a href="JVM运行时数据区.html">
-
-
-                                JVM运行时数据区
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.6.2" data-path="类文件结构.html">
-
-                            <a href="类文件结构.html">
-
-
-                                类文件结构
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter active" data-level="1.6.3" data-path="类加载.html">
-
-                            <a href="类加载.html">
-
-
-                                类加载
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.6.4" data-path="JVM对象.html">
-
-                            <a href="JVM对象.html">
-
-
-                                JVM对象
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.6.5" data-path="JVM_GC.html">
-
-                            <a href="JVM_GC.html">
-
-
-                                JVM垃圾回收
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.6.6" data-path="JVM参数.html">
-
-                            <a href="JVM参数.html">
-
-
-                                JVM参数
-
-                            </a>
-
-
-                        </li>
-
-                        <li class="chapter " data-level="1.6.7" data-path="JVM分析工具.html">
-
-                            <a href="JVM分析工具.html">
-
-
-                                JVM分析工具
-
-                            </a>
-
-
-                        </li>
-
-
-                    </ul>
-
-                </li>
-
-                <li class="chapter " data-level="1.7" data-path="../工具使用/idea常用操作.html">
-
-                    <a href="../工具使用/idea常用操作.html">
-
-
-                        IDEA常用操作
-
-                    </a>
-
-
-                </li>
-
-
-                <li class="divider"></li>
-
-                <li>
-                    <a class="gitbook-link" href="https://www.gitbook.com" target="blank">
-                        Published with GitBook
-                    </a>
-                </li>
-            </ul>
-
-
-        </nav>
-
-
-    </div>
-
-    <!-- Content nav -->
-    <div class="book-anchor">
-        <div class="book-anchor-title">在这篇文章中:</div>
-        <div class="book-anchor-body">
-
-        </div>
-    </div>
-
-    <div class="book-body">
-
-        <div class="body-inner">
-
-
-            <div class="book-header" role="navigation">
-
-
-                <!-- Title -->
-                <h1>
-                    <i class="fa fa-circle-o-notch fa-spin"></i>
-                    <a href="..">类加载</a>
-                </h1>
-            </div>
-
-
-            <div class="page-wrapper" role="main" tabindex="-1">
-                <div class="page-inner">
-
-                    <div id="book-search-results">
-                        <div class="search-noresults">
-
-                            <section class="normal markdown-section">
-
-                                <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span
-                                        class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2022-08-06 17:52:40
-</span></footer>
-
-                            </section>
-
-                        </div>
-                        <div class="search-results">
-                            <div class="has-results">
-
-                                <h1 class="search-results-title"><span class='search-results-count'></span> results
-                                    matching "<span class='search-query'></span>"</h1>
-                                <ul class="search-results-list"></ul>
-
-                            </div>
-                            <div class="no-results">
-
-                                <h1 class="search-results-title">No results matching "<span class='search-query'></span>"
-                                </h1>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-
-        <a aria-label="Previous page: 类文件结构" class="navigation navigation-prev " href="类文件结构.html">
-            <i class="fa fa-angle-left"></i>
-        </a>
-
-
-        <a aria-label="Next page: JVM对象" class="navigation navigation-next " href="JVM对象.html">
-            <i class="fa fa-angle-right"></i>
-        </a>
-
-
-    </div>
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function () {
-            gitbook.page.hasChanged({
-                "page": {
-                    "title": "类加载",
-                    "level": "1.6.3",
-                    "depth": 2,
-                    "next": {
-                        "title": "JVM对象",
-                        "level": "1.6.4",
-                        "depth": 2,
-                        "path": "jvm/JVM对象.md",
-                        "ref": "jvm/JVM对象.md",
-                        "articles": []
-                    },
-                    "previous": {
-                        "title": "类文件结构",
-                        "level": "1.6.2",
-                        "depth": 2,
-                        "path": "jvm/类文件结构.md",
-                        "ref": "jvm/类文件结构.md",
-                        "articles": []
-                    },
-                    "dir": "neutral"
-                },
-                "config": {
-                    "plugins": ["-page-treeview", "-lunr", "-search", "search-pro", "-chapter-fold", "splitter", "back-to-top-button", "theme-fexa", "tbfed-pagefooter", "expandable-chapters-small", "livereload"],
-                    "styles": {
-                        "website": "styles/website.css",
-                        "pdf": "styles/pdf.css",
-                        "epub": "styles/epub.css",
-                        "mobi": "styles/mobi.css",
-                        "ebook": "styles/ebook.css",
-                        "print": "styles/print.css"
-                    },
-                    "pluginsConfig": {
-                        "tbfed-pagefooter": {
-                            "copyright": "",
-                            "modify_label": "Young, 该文件最后修改时间：",
-                            "modify_format": "YYYY-MM-DD HH:mm:ss"
-                        },
-                        "page-treeview": {
-                            "copyright": "Copyright &#169; aleen42",
-                            "minHeaderCount": "2",
-                            "minHeaderDeep": "2"
-                        },
-                        "pluginsConfig": {
-                            "insert-logo": {
-                                "url": "images/logo.png",
-                                "style": "background: none; max-height: 30px; min-height: 30px"
-                            }
-                        },
-                        "livereload": {},
-                        "splitter": {},
-                        "search-pro": {},
-                        "theme-fexa": {"search-placeholder": "输入关键字搜索", "logo": "./main_logo1.gif", "favicon": ""},
-                        "fontsettings": {"theme": "white", "family": "sans", "size": 2},
-                        "highlight": {},
-                        "back-to-top-button": {},
-                        "expandable-chapters-small": {},
-                        "sharing": {
-                            "facebook": true,
-                            "twitter": true,
-                            "google": false,
-                            "weibo": false,
-                            "instapaper": false,
-                            "vk": false,
-                            "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
-                        },
-                        "theme-default": {
-                            "styles": {
-                                "website": "styles/website.css",
-                                "pdf": "styles/pdf.css",
-                                "epub": "styles/epub.css",
-                                "mobi": "styles/mobi.css",
-                                "ebook": "styles/ebook.css",
-                                "print": "styles/print.css"
-                            }, "showLevel": false
-                        }
-                    },
-                    "theme": "default",
-                    "author": "Young",
-                    "pdf": {
-                        "pageNumbers": true,
-                        "fontSize": 12,
-                        "fontFamily": "Arial",
-                        "paperSize": "a4",
-                        "chapterMark": "pagebreak",
-                        "pageBreaksBefore": "/",
-                        "margin": {"right": 62, "left": 62, "top": 56, "bottom": 56}
-                    },
-                    "structure": {
-                        "langs": "LANGS.md",
-                        "readme": "README.md",
-                        "glossary": "GLOSSARY.md",
-                        "summary": "SUMMARY.md"
-                    },
-                    "variables": {},
-                    "title": "每日搬砖",
-                    "links": {
-                        "sidebar": {
-                            "码云主页": "https://gitee.com/gaoyang8320",
-                            "代码仓库": "https://gitee.com/gaoyang8320/java-notes"
-                        }
-                    },
-                    "gitbook": "*",
-                    "description": "学习笔记"
-                },
-                "file": {"path": "jvm/类加载.md", "mtime": "2022-08-06T09:52:40.233Z", "type": "markdown"},
-                "gitbook": {"version": "3.2.3", "time": "2022-08-06T09:58:28.673Z"},
-                "basePath": "..",
-                "book": {"language": ""}
-            });
-        });
-    </script>
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Search -->
+		
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
 </div>
 
 
-<script src="../gitbook/gitbook.js"></script>
-<script src="../gitbook/theme.js"></script>
+		<!-- Nav -->
+		<ul class="header-nav">
+			
+		</ul>
+	</div>
+
+	<div class="book-summary">
+		<div class="book-summary-title">文档目录</div>
+		
+		
+		<nav role="navigation">
+			
 
 
-<script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://gitee.com/gaoyang8320" target="_blank" class="custom-link">码云主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://gitee.com/gaoyang8320/java-notes" target="_blank" class="custom-link">代码仓库</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../设计模式/readme.html">
+            
+                <a href="../设计模式/readme.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../设计模式/00概述.html">
+            
+                <a href="../设计模式/00概述.html">
+            
+                    
+                    00设计模式概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../设计模式/01工厂模式.html">
+            
+                <a href="../设计模式/01工厂模式.html">
+            
+                    
+                    01工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../设计模式/02单例模式.html">
+            
+                <a href="../设计模式/02单例模式.html">
+            
+                    
+                    02单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../设计模式/03建造者模式.html">
+            
+                <a href="../设计模式/03建造者模式.html">
+            
+                    
+                    03建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../设计模式/04原型模式.html">
+            
+                <a href="../设计模式/04原型模式.html">
+            
+                    
+                    04原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../设计模式/05适配器模式.html">
+            
+                <a href="../设计模式/05适配器模式.html">
+            
+                    
+                    05适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../设计模式/06桥接模式.html">
+            
+                <a href="../设计模式/06桥接模式.html">
+            
+                    
+                    06桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../设计模式/07过滤器模式.html">
+            
+                <a href="../设计模式/07过滤器模式.html">
+            
+                    
+                    07过滤器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../设计模式/08组合模式.html">
+            
+                <a href="../设计模式/08组合模式.html">
+            
+                    
+                    08组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../设计模式/09装饰器模式.html">
+            
+                <a href="../设计模式/09装饰器模式.html">
+            
+                    
+                    09装饰器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../设计模式/10外观模式.html">
+            
+                <a href="../设计模式/10外观模式.html">
+            
+                    
+                    10外观模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../设计模式/11享元模式.html">
+            
+                <a href="../设计模式/11享元模式.html">
+            
+                    
+                    11享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../设计模式/12代理模式.html">
+            
+                <a href="../设计模式/12代理模式.html">
+            
+                    
+                    12代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../设计模式/13责任链模式.html">
+            
+                <a href="../设计模式/13责任链模式.html">
+            
+                    
+                    13责任链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../设计模式/14命令模式.html">
+            
+                <a href="../设计模式/14命令模式.html">
+            
+                    
+                    14命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../设计模式/15解释器模式.html">
+            
+                <a href="../设计模式/15解释器模式.html">
+            
+                    
+                    15解释器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../设计模式/16迭代器模式.html">
+            
+                <a href="../设计模式/16迭代器模式.html">
+            
+                    
+                    16迭代器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../设计模式/17中介模式.html">
+            
+                <a href="../设计模式/17中介模式.html">
+            
+                    
+                    17中介模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="../设计模式/18备忘录模式.html">
+            
+                <a href="../设计模式/18备忘录模式.html">
+            
+                    
+                    18备忘录模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="../设计模式/19观察者模式.html">
+            
+                <a href="../设计模式/19观察者模式.html">
+            
+                    
+                    19观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="../设计模式/20状态模式.html">
+            
+                <a href="../设计模式/20状态模式.html">
+            
+                    
+                    20状态模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="../设计模式/21策略模式.html">
+            
+                <a href="../设计模式/21策略模式.html">
+            
+                    
+                    21策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="../设计模式/22模板方法.html">
+            
+                <a href="../设计模式/22模板方法.html">
+            
+                    
+                    22模板方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="../设计模式/23访问者模式.html">
+            
+                <a href="../设计模式/23访问者模式.html">
+            
+                    
+                    23访问者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../spring/readme.html">
+            
+                <a href="../spring/readme.html">
+            
+                    
+                    spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../spring/spring-bean生命周期.html">
+            
+                <a href="../spring/spring-bean生命周期.html">
+            
+                    
+                    spring-bean生命周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../唯一ID/unique_id.html">
+            
+                <a href="../唯一ID/unique_id.html">
+            
+                    
+                    分布式唯一ID
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../IO模型/IO模型.html">
+            
+                <a href="../IO模型/IO模型.html">
+            
+                    
+                    IO模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="JVM运行时数据区.html">
+            
+                <a href="JVM运行时数据区.html">
+            
+                    
+                    JVM运行时数据区
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="类文件结构.html">
+            
+                <a href="类文件结构.html">
+            
+                    
+                    类文件结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="类加载.html">
+            
+                <a href="类加载.html">
+            
+                    
+                    类加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="JVM对象.html">
+            
+                <a href="JVM对象.html">
+            
+                    
+                    JVM对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="JVM_GC.html">
+            
+                <a href="JVM_GC.html">
+            
+                    
+                    JVM垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="JVM参数.html">
+            
+                <a href="JVM参数.html">
+            
+                    
+                    JVM参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="JVM分析工具.html">
+            
+                <a href="JVM分析工具.html">
+            
+                    
+                    JVM分析工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../工具使用/idea常用操作.html">
+            
+                <a href="../工具使用/idea常用操作.html">
+            
+                    
+                    IDEA常用操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
 
 
-<script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-title">在这篇文章中:</div>
+		<div class="book-anchor-body">
+
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >类加载</a>
+    </h1>
+</div>
 
 
-<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
 
 
-<script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+					<section class="normal markdown-section">
+						
+						<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">Young, &#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2022-08-07 10:04:11
+</span></footer>
+						
+					</section>
+					
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
 
+				</div>
+			</div>
+			
+		</div>
 
-<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+		
+		
+		<a href="类文件结构.html" class="navigation navigation-prev " aria-label="Previous page: 类文件结构">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
+		
+		<a href="JVM对象.html" class="navigation navigation-next " aria-label="Next page: JVM对象">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"title":"类加载","level":"1.6.3","depth":2,"next":{"title":"JVM对象","level":"1.6.4","depth":2,"path":"jvm/JVM对象.md","ref":"jvm/JVM对象.md","articles":[]},"previous":{"title":"类文件结构","level":"1.6.2","depth":2,"path":"jvm/类文件结构.md","ref":"jvm/类文件结构.md","articles":[]},"dir":"neutral"},"config":{"plugins":["-page-treeview","-lunr","-search","search-pro","-chapter-fold","splitter","back-to-top-button","theme-fexa","tbfed-pagefooter","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"Young, 该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"pluginsConfig":{"insert-logo":{"url":"images/logo.png","style":"background: none; max-height: 30px; min-height: 30px"}},"livereload":{},"splitter":{},"search-pro":{},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./main_logo1.gif","favicon":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Young","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"每日搬砖","links":{"sidebar":{"码云主页":"https://gitee.com/gaoyang8320","代码仓库":"https://gitee.com/gaoyang8320/java-notes"}},"gitbook":"*","description":"学习笔记"},"file":{"path":"jvm/类加载.md","mtime":"2022-08-07T02:04:11.253Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-07T07:50:10.950Z"},"basePath":"..","book":{"language":""}});
+		});
+	</script>
+</div>
 
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
 
-<script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-
-
-<script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-
-
-<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-
-
-<script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
-
-
-</body>
+    </body>
 </html>
 
