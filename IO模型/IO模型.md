@@ -16,7 +16,7 @@
 - 操作系统准备数据，把IO外部设备的数据加载到内核缓冲区
 - 操作系统拷贝数据，即将内核缓冲区的数据拷贝到进程缓冲区中
 
-# IO模型
+# 网络IO模型
 
 **下述所说应用程序，应用进程，应用线程，如无特殊说明都是一个意思**
 
@@ -115,11 +115,252 @@ IO多路复用，将询问内核数据是否准备好的工作交由一个单独
 
 ## 总结
 
-# 网络IO
-
-
-
 ![总结](./images/总结.png)
+
+# Reactor模型
+
+网络IO模式是操作系统层面的，而Reactor模型则是应用层面对IO的处理。
+
+## 单线程Reactor
+
+![](./images/单线程Reactor线程模型.png)
+
+单线程Reactor模型, 所有的IO操作都在一个线程中完成. 这种方式在高负载和高并发的场景下会存在性能瓶颈,一个线程同时处理上万的连接的IO擦做,系统是无法支撑的.
+
+## 多线程Reactor
+
+多线程Reactor模式将请求的处理放在线程池中处理,但是处理连接请求的线程仍然是一个.
+
+![](./images/多线程Reactor线程模型.png)
+
+## 主从线程Reactor
+
+主从Reactor模型中,Acceptor不再是一个单独的线程,而是一个线程池. Accptor接受到的客户端的连接后,将请求的处理交给handler线程处理.
+
+![](./images/主从Reactor线程模型.png)
+
+# Java 网络IO
+
+## BIO
+
+### BioServer
+
+```java
+
+package com.young.io;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.nio.charset.Charset;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * BIO服务器
+ *
+ * @author Young
+ * @date 2022/09/03 16:59:02
+ */
+@Slf4j
+public class BioServer {
+
+    public static void main(String[] args) {
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(8, 8
+                , 30, TimeUnit.SECONDS
+                , new LinkedBlockingQueue<>(1024)
+                , Executors.defaultThreadFactory()
+                , new ThreadPoolExecutor.DiscardPolicy());
+
+        try {
+            ServerSocket ss = new ServerSocket(8080);
+            log.info("服务端启动成功....");
+            while (true) {
+                Socket socket = ss.accept();
+                log.info("接受连接...");
+                executor.execute(() -> handler(socket));
+            }
+        } catch (IOException e) {
+            log.error("服务端报错", e);
+        }
+
+    }
+
+    private static void handler(Socket socket) {
+        try {
+            // 用于存放读取数据的字节数组
+            byte[] bytes = new byte[512];
+            // 通过socket获取输入流
+            InputStream inputStream = socket.getInputStream();
+            // 循环读取客户端发送端的数据
+            String serverInfo = "Thread id =" + Thread.currentThread().getId() + " " + "name:" + Thread.currentThread().getName();
+            log.info(serverInfo);
+            log.info("read ...");
+            // 输入流把数据读取到bytes中，返回读取数据的个数
+            int read = inputStream.read(bytes);
+            // 把客户端发送的数据从字节转化为字符串输出
+            String rcvString = new String(bytes, 0, read);
+            log.info("客户端数据为: \n{}", rcvString);
+            socket.getOutputStream().write(serverInfo.getBytes(Charset.forName("UTF8")));
+        } catch (Exception e) {
+            log.error("读取数据出错", e);
+        } finally {
+            log.info("关闭和client的连接");
+            try {
+                socket.close();
+            } catch (Exception e) {
+                log.error("关闭和client的连接报错", e);
+            }
+        }
+    }
+
+}
+
+
+
+```
+
+### BioClient
+
+```java
+
+package com.young.io;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Bio客户端
+ *
+ * @author Young
+ * @date 2022/09/03 20:19:47
+ */
+@Slf4j
+public class BioClient {
+
+
+    public static void main(String[] args) {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(8, 8
+                , 30, TimeUnit.SECONDS
+                , new LinkedBlockingQueue<>(1024)
+                , Executors.defaultThreadFactory()
+                , new ThreadPoolExecutor.DiscardPolicy());
+        while (true) {
+            executor.execute(() -> doReq());
+        }
+
+    }
+
+    private static void doReq() {
+        try {
+            Socket s = new Socket("127.0.0.1", 8080);
+            //构建IO
+            InputStream is = s.getInputStream();
+            OutputStream os = s.getOutputStream();
+
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
+            //向服务器端发送一条消息
+            bw.write("我是客户端的消息");
+            bw.flush();
+
+            //读取服务器返回的消息
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            String mess = br.readLine();
+            System.out.println("服务器：" + mess);
+        } catch (IOException e) {
+            log.error("客户端错误", e);
+        }
+    }
+}
+
+
+```
+
+## NIO
+
+Java NIO的实现主要涉及三大核心内容: Selector, Channel和Buffer. Selector用于监听多个Channel的事件, 比如连接打开或数据到达, 因此一个线程可以实现对多个数据Channel的管理. 传统IO基于数据流进行IO读写操作，而JavaNIO基于Channel和Buffer进行IO读写操作, 并且数据总是被从Channel读取到Buffer中,或者从Buffer写入到Channel中.
+
+### NioServer
+
+
+```java
+
+package com.young.io;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
+
+/**
+ * nio客户端
+ *
+ * @author Young
+ * @date 2022/09/03 20:31:31
+ */
+
+public class NioClient {
+    public static void main(String[] args) {
+        try {
+            //得到一个SocketChannel
+            SocketChannel socketChannel = SocketChannel.open();
+            //设置非阻塞
+            socketChannel.configureBlocking(false);
+            //提供服务器端的ip和端口
+            InetSocketAddress inetSocketAddress = new InetSocketAddress("127.0.0.1", 9090);
+
+            //连接服务器,非阻塞情况下，需要调用finishConnect
+            /*
+             * If this channel is in non-blocking mode then an invocation of this method initiates
+             * a non-blocking connection operation. If the connectionis established immediately,
+             * as can happen with a local connection, then this method returns true.
+             * Otherwise this method returns false and the connection operation must
+             * later be completed by invoking the finishConnect method.
+             *
+             * */
+            if (!socketChannel.connect(inetSocketAddress)) {
+                while (!socketChannel.finishConnect()) {
+                    System.out.println("connect...");
+                }
+            }
+
+
+            //如果连接成功，就发送数据
+            String str = "hello, world";
+            ByteBuffer buffer = ByteBuffer.allocate(str.length());
+            buffer.put(str.getBytes());
+            buffer.flip();
+
+            //将数据写入 channel
+            socketChannel.write(buffer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+```
+
+### NioClient
 
 
 # 参考
